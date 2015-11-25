@@ -1,0 +1,15 @@
+.button-bar {
+    width: 30%;
+    float: left;
+    border: dashed;
+}
+
+.button-bar-hidden {
+    width: 0;
+    /* float: left; */
+}
+
+
+.choice-menu {
+    border: dotted;
+}
