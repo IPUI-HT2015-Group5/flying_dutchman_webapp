@@ -1,49 +1,11 @@
-
-body {
-    background-color: #FA3817;
-
-}
-
 div {
-    color: #BA2A11
     border: dashed;
 }
 
 .header {
-    font: 15px arial;
     text-align: center;
-
-    position: fixed;
-    top: 40px;
-    left: 25px;
-
-    width: 95%;
-
-    background-color: #BA2A11;
-
-    z-index: 1;
-
-
-}
-
-.img {
-    position: fixed;
-    top: 160px;
-    left: 340px;
-
-    border:7px solid black;
-
-
-
 }
 
 .login-element {
-
-    border-color: black;
-    border: 7pt;
-
-    float: right;
-
-    background-color: #7A1B0B
-    transition-duration: 1s;
+    child-align: middle;
 }
