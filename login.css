@@ -13,7 +13,7 @@ div {
     font: 15px arial;
     text-align: center;
 
-    position: fixed;  /* The header does not move with the scrolling. */
+    position: fixed;
     top: 40px;
     left: 25px;
 
@@ -27,7 +27,7 @@ div {
 }
 
 .img {
-    position: fixed;  /* The header does not move with the scrolling. */
+    position: fixed;
     top: 160px;
     left: 340px;
 
