@@ -1,0 +1,11 @@
+div {
+    border: dashed;
+}
+
+.header {
+    text-align: center;
+}
+
+.login-element {
+    child-align: middle;
+}
