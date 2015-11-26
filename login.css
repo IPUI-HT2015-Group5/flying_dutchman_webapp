@@ -6,6 +6,14 @@ div {
     text-align: center;
 }
 
+.login-box {
+    /* width: 200px; */
+    padding-left: 10%;
+    padding-top: 10%;
+}
+
 .login-element {
-    child-align: middle;
+    width: 200px;
+    padding-left: 10%;
+    padding-top: 10%;
 }
