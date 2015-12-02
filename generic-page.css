@@ -4,16 +4,16 @@ div {
 
 #sidebar {
     width: 30%;
-    height: 100%;
+    min-height: 100%;
     float: left;
 }
 
 #sidebar-top {
     width: inherit;
-    height: 300px;
+    min-height: 30%;
 }
 
 #sidebar-bottom {
     width: inherit;
-    height: 300px;
+    min-height: 70%;
 }

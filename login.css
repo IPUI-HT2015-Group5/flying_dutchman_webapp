@@ -1,11 +1,10 @@
-
 body {
     background-color: #FA3817;
 
 }
 
 div {
-    color: #BA2A11
+    color: #BA2A11;
     border: dashed;
 }
 
@@ -32,9 +31,6 @@ div {
     left: 340px;
 
     border:7px solid black;
-
-
-
 }
 
 .login-element {
@@ -44,6 +40,6 @@ div {
 
     float: right;
 
-    background-color: #7A1B0B
+    background-color: #7A1B0B;
     transition-duration: 1s;
 }
