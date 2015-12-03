@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generic page</title>
+    <link rel="stylesheet" href="generic-page.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+
+<div id="main-body">
+    <div id="sidebar">
+        <div id="sidebar-top">
+            Sidebar top
+        </div>
+        <div id="sidebar-bottom">
+            Sidebar bottom
+        </div>
+    </div>
+
+    <div id="main">
+        Stuff here
+        <div id="images"></div>
+        <div id="pub-stuff">
+            <!--
+            <ul id="beer-list">
+                <li>List as: Beer 1st name, Beer 2nd name, Beer price</li>
+            </ul>
+            -->
+        </div>
+        <script>
+                var action = "inventory_get";
+                var user = "jorass";
+                var PubAPI = "http://pub.jamaica-inn.net/fpdb/api.php?username=" + user + "&password=" + user + "&action=" + action;
+                var list = [];
+
+                $("#pub-stuff").append("<ul id=\"beer-list\"></ul>");
+
+                $.getJSON(PubAPI)
+                        .done(function (data) {
+                            $.each(data.payload, function (i, item) {
+                                console.log(
+                                        "Beer: " + item.namn + ", " +
+                                        "also knowns as: " + item.namn2 + ", " +
+                                        "price: " + item.price
+                                );
+                                $("#beer-list").append("<li>" +
+                                        "Beer: " + item.namn + ", " +
+                                        "also knowns as: " + item.namn2 + ", " +
+                                        "price: " + item.price + "" +
+                                        "</li>");
+                            });
+                        });
+
+                /*$("<ul/>", {
+                    "class": "beer-list",
+                    html: list.join("")
+                }).appendTo("#pub-stuff");*/
+        </script>
+        <!--
+        {"namn" : "","namn2" : "","sbl_price" : "","pub_price" : "","beer_id" : "0","count" : "-2","price" : "0.00"}
+        -->
+    </div>
+</div>
+
+</body>
+</html>
