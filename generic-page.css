@@ -1,5 +1,20 @@
 div {
-    border: dashed;
+    border: solid;
+    border-color: #BA2A11;
+}
+
+body {
+    background-color: #FA3817;
+}
+
+.back-element {
+
+    border-color: black;
+    border: 7pt;
+
+
+    background-color: #768d87
+transition-duration: 1s;
 }
 
 #sidebar {
