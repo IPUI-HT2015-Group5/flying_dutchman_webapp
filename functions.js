@@ -42,3 +42,40 @@ function beerListElementBuilder(item) {
         "Beer price: " + item.price + "" +
         "</li>";
 }
+
+/**
+ * logon script
+ * @param username
+ * @param password
+ */
+function logon(usr, pwd) {
+    var action = iou_get;
+    var admins = ["jorass", "ervtod", "hirchr", "saskru", "svetor"];
+    var PubAPI = "http://pub.jamaica-inn.net/fpdb/api.php?username=" + user + "&password=" + pass + "&action=" + action;
+
+    localStorage.setItem("user", usr);
+
+    $.getJSON(PubAPI)
+        .done(function (data)) {
+            $.each(data.payload, key, value) {
+
+            localStorage.setItem("assets", value.assets);
+            localStorage.setItem("firstName", value.first_name);
+            localStorage.setItem("lastName", value.last_name);
+
+            switch (value.type) {
+                case error:
+                    alert(value.msg);
+
+                default:
+                    if usr.in(admins) {
+                        window.location.href = 'admins.html';
+                        return false;
+                    } else {
+                        window.location.href = 'customer.html';
+                        return false;
+                    }
+            }
+        }
+    }
+}
