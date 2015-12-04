@@ -45,9 +45,8 @@ function beerListElementBuilder(item) {
 
 /**
  * logon script
- * @param username
- * @param password
  */
+
 function logon(usr, pwd) {
     var action = iou_get;
     var admins = ["jorass", "ervtod", "hirchr", "saskru", "svetor"];
@@ -68,7 +67,7 @@ function logon(usr, pwd) {
                     alert(value.msg);
 
                 default:
-                    if usr.in(admins) {
+                    if ($.inArray(usr, admins) > -1){
                         window.location.href = 'admins.html';
                         return false;
                     } else {
