@@ -42,3 +42,13 @@ function beerListElementBuilder(item) {
         "Beer price: " + item.price + "" +
         "</li>";
 }
+
+$(function() {
+
+    $("#tooltip").hide();
+
+    $("#demo").click(function() {
+        $("#tooltip").toggle("slow");
+    });
+
+});
