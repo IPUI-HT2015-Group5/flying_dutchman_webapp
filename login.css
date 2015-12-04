@@ -4,8 +4,8 @@ body {
 }
 
 div {
-    color: #BA2A11;
-    border: dashed;
+    color: black;
+    border: solid;
 }
 
 .header {
@@ -18,9 +18,9 @@ div {
 
     width: 95%;
 
-    background-color: #BA2A11;
+    border-color: black;
 
-    z-index: 1;
+
 
 
 }
