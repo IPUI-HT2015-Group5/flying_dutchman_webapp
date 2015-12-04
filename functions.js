@@ -44,25 +44,26 @@ function beerListElementBuilder(item) {
 }
 
 function logon(user, pass) {
+    var user = document.getElementById('username').value;
+    var pass = document.getElementById('password').value;
     var action = iou_get;
     var admins = ["jorass", "ervtod", "hirchr", "saskru", "svetor"];
     var PubAPI = "http://pub.jamaica-inn.net/fpdb/api.php?username=" + user + "&password=" + pass + "&action=" + action;
+    console.log("User: " + user + ", password" + pass);
 
     localStorage.setItem("user", user);
-
+    console.log("logging in" + user, + pass);
+    alert("username: " + user + " password: " + pass);
     $.getJSON(PubAPI)
         .done(function (data) {
+            localStorage.setItem("assets", value.assets);
+            localStorage.setItem("firstName", value.first_name);
+            localStorage.setItem("lastName", value.last_name);
+
             $.each(data.payload, function (i, value) {
-
-                localStorage.setItem("assets", value.assets);
-                localStorage.setItem("firstName", value.first_name);
-                localStorage.setItem("lastName", value.last_name);
-
-                switch (value.type) {
-                    case error:
-                        alert(value.msg);
-
-                    default:
+                if (value.type = "error") {
+                    alert(value.msg);
+                } else {
                         if ($.inArray(usr, admins) > -1){
                             window.location.href = 'generic-page-json.html';
                             return false;
@@ -75,6 +76,10 @@ function logon(user, pass) {
         });
 }
 
+function logonTest(user, pass) {
+    alert("User: " + user + ", password" + pass);
+    console.log("User: " + user + ", password" + pass);
+}
 
 
 
