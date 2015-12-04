@@ -1,5 +1,3 @@
-
-
 body {
     background-color: #FA3817;
 }
@@ -49,34 +47,49 @@ body {
 
 
 div {
-
     border: solid;
     border-color: #768d87;
 }
 
 
 .back-element {
-
     border-color: black;
     border: 7pt;
+    background-color: #768d87;
+    transition-duration: 1s;
+}
 
-
-    background-color: #768d87
-transition-duration: 1s;
+#main-body {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
 }
 
 #sidebar {
     width: 30%;
-    min-height: 100%;
     float: left;
 }
 
 #sidebar-top {
-    width: inherit;
-    min-height: 30%;
+    position: absolute;
+    top: 0;
+    width: 30%;
+    height: 25%;
+    float: left;
 }
 
 #sidebar-bottom {
-    width: inherit;
-    min-height: 70%;
+    position: absolute;
+    top: 25%;
+    width: 30%;
+    min-height: 75%;
+    float: left;
+}
+
+#main {
+    position: absolute;
+    top: 0;
+    left: 30%;
 }

@@ -1,2 +1,2 @@
 # Exclude WebStorm specific files
-.idea/
+.idea/*
