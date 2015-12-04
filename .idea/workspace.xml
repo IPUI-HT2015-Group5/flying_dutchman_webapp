@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b47a353-2369-4de6-83ed-e659a3c1c139" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shopping-cart.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functions.js" afterPath="$PROJECT_DIR$/functions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generic-page.css" afterPath="$PROJECT_DIR$/generic-page.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vip-generic-json.html" afterPath="$PROJECT_DIR$/vip-generic-json.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="project_interface.iws" />
@@ -528,7 +524,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449236153199</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="VIP generic">
+      <created>1449238556126</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1449238556126</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -571,7 +573,8 @@
     <MESSAGE value="Made a prototype startpage, just made up some color and found a pic just to put it there." />
     <MESSAGE value="Test push" />
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="VIP generic" />
+    <option name="LAST_COMMIT_MESSAGE" value="VIP generic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
