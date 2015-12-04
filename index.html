@@ -38,10 +38,10 @@
     </form>
 </div>-->
 <div id="login" class="box">
-    <form onSubmit="return logon(username, password)">
+    <form method="post">
         <input type="text" id="username" name="username" size="20" maxlength="25" placeholder="Username" required="true"/>
         <input type="password" id="password" name="password" size="20" placeholder="Password" required="true">
-        <input type="submit" id="submit" value ="Login">
+        <input type="submit" id="submit" value="Login" onclick="login(this.form)">
     </form>
 </div>
 

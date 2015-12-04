@@ -17,8 +17,7 @@ function createUnorderedList(action, user, pass, parentID, listID, elementBuilde
 
     $('#' + parentID).append("<ul id="+ listID + "></ul>");
 
-    $.getJSON(PubAPI)
-        .done(function (data) {
+    $.getJSON(PubAPI, function (data) {
             $.each(data.payload, function (i, item) {
                 console.log(elementBuilder(item));
                 $('#' + listID).append(elementBuilder(item));
@@ -43,52 +42,47 @@ function beerListElementBuilder(item) {
         "</li>";
 }
 
-function logon(user, pass) {
-    var user = document.getElementById('username').value;
-    var pass = document.getElementById('password').value;
-    var action = iou_get;
-    var admins = ["jorass", "ervtod", "hirchr", "saskru", "svetor"];
+function login(form) {
+
+    var user = form.username.value;
+    var pass = form.password.value;
+    alert("Hello, " + user + " with password " + pass);
+
+    var action = "inventory_get";
+    //var admins = ["jorass", "ervtod", "hirchr", "saskru", "svetor"];
     var PubAPI = "http://pub.jamaica-inn.net/fpdb/api.php?username=" + user + "&password=" + pass + "&action=" + action;
-    console.log("User: " + user + ", password" + pass);
+    console.log(PubAPI);
 
-    localStorage.setItem("user", user);
-    console.log("logging in" + user, + pass);
-    alert("username: " + user + " password: " + pass);
-    $.getJSON(PubAPI)
-        .done(function (data) {
-            localStorage.setItem("assets", value.assets);
-            localStorage.setItem("firstName", value.first_name);
-            localStorage.setItem("lastName", value.last_name);
+    $.getJSON(PubAPI, function (data) {
+            alert("Data fetched! " + data);
+            /*
+            if (data.type == action) {
+                alert("Login succesful with data: " + _user + "," + _pass);
+                localStorage.setItem("user", _user);
+                localStorage.setItem("pass", _pass);
 
-            $.each(data.payload, function (i, value) {
-                if (value.type = "error") {
-                    alert(value.msg);
+                if ($.inArray(_user, admins) > -1) {
+                    //window.location.href = 'generic-page-json.html';
+                    alert(localStorage.getItem("user") + " is an admin!");
                 } else {
-                        if ($.inArray(usr, admins) > -1){
-                            window.location.href = 'generic-page-json.html';
-                            return false;
-                        } else {
-                            window.location.href = 'vip-generic-json.html';
-                            return false;
-                        }
+                    alert(localStorage.getItem("user") + " is an user!");
+                    //window.location.href = 'vip-generic-json.html';
                 }
-            });
-        });
+            } else {
+                alert("Wrong login!");
+                console.log("Wrong login!");
+                //window.location.href = this.href;
+            }
+            */
+        })
+        .done(
+            function () {
+                alert("Success!");
+            }
+        )
+        .fail(
+            function (data) {
+                alert("Problems here, calling the URL: " + PubAPI + ", returned: " + data);
+            }
+        );
 }
-
-function logonTest(user, pass) {
-    alert("User: " + user + ", password" + pass);
-    console.log("User: " + user + ", password" + pass);
-}
-
-
-
-$(function() {
-
-    $("#tooltip").hide();
-
-    $("#demo").click(function() {
-        $("#tooltip").toggle("slow");
-    });
-
-});
