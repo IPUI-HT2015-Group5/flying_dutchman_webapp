@@ -39,10 +39,19 @@ body {
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87',GradientType=0);
     background-color:#6c7c7c;
 }
+
+
+.expander {
+    position: absolute;
+    border: 2px darkgrey solid;
+    border-radius: 0px 20px 20px 20px;
+    z-index: 2;
+}
+
 .myButton:active {
     position:relative;
     top:1px;
-    action:"StartAdmin.html"
+
 }
 
 

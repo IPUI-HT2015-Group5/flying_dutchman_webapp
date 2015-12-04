@@ -43,10 +43,6 @@ function beerListElementBuilder(item) {
         "</li>";
 }
 
-/**
- * logon script
- */
-
 function logon(user, pass) {
     var action = iou_get;
     var admins = ["jorass", "ervtod", "hirchr", "saskru", "svetor"];
@@ -58,23 +54,36 @@ function logon(user, pass) {
         .done(function (data) {
             $.each(data.payload, function (i, value) {
 
-            localStorage.setItem("assets", value.assets);
-            localStorage.setItem("firstName", value.first_name);
-            localStorage.setItem("lastName", value.last_name);
+                localStorage.setItem("assets", value.assets);
+                localStorage.setItem("firstName", value.first_name);
+                localStorage.setItem("lastName", value.last_name);
 
-            switch (value.type) {
-                case error:
-                    alert(value.msg);
+                switch (value.type) {
+                    case error:
+                        alert(value.msg);
 
-                default:
-                    if ($.inArray(usr, admins) > -1){
-                        window.location.href = 'admins.html';
-                        return false;
-                    } else {
-                        window.location.href = 'customer.html';
-                        return false;
-                    }
-            }
+                    default:
+                        if ($.inArray(usr, admins) > -1){
+                            window.location.href = 'generic-page-json.html';
+                            return false;
+                        } else {
+                            window.location.href = 'vip-generic-json.html';
+                            return false;
+                        }
+                }
+            });
         });
-    });
 }
+
+
+
+
+$(function() {
+
+    $("#tooltip").hide();
+
+    $("#demo").click(function() {
+        $("#tooltip").toggle("slow");
+    });
+
+});
