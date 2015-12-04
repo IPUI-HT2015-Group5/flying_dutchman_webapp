@@ -47,16 +47,16 @@ function beerListElementBuilder(item) {
  * logon script
  */
 
-function logon(usr, pwd) {
+function logon(user, pass) {
     var action = iou_get;
     var admins = ["jorass", "ervtod", "hirchr", "saskru", "svetor"];
     var PubAPI = "http://pub.jamaica-inn.net/fpdb/api.php?username=" + user + "&password=" + pass + "&action=" + action;
 
-    localStorage.setItem("user", usr);
+    localStorage.setItem("user", user);
 
     $.getJSON(PubAPI)
-        .done(function (data)) {
-            $.each(data.payload, key, value) {
+        .done(function (data) {
+            $.each(data.payload, function (i, value) {
 
             localStorage.setItem("assets", value.assets);
             localStorage.setItem("firstName", value.first_name);
@@ -75,6 +75,6 @@ function logon(usr, pwd) {
                         return false;
                     }
             }
-        }
-    }
+        });
+    });
 }
