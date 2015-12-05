@@ -18,6 +18,8 @@
 
 
 </div>
+
+
 <div class="img">
     <img src="bear.jpg" style="width:400px;height:304px;">
 </div>
@@ -41,9 +43,17 @@
     <form method="post">
         <input type="text" id="username" name="username" size="20" maxlength="25" placeholder="Username" required="true"/>
         <input type="password" id="password" name="password" size="20" placeholder="Password" required="true">
-        <input type="submit" id="submit" value="Login" onclick="login(this.form)">
+        <input type="submit" id="submit" value="Login" onclick="logIn(this.form)">
     </form>
 </div>
+
+<div id="json-experiment">
+    <!-- Filled by JavaScript later -->
+</div>
+
+<script>
+    createUnorderedList("inventory_get", "jorass", "jorass", "json-experiment" , "beer-list", beerListElementBuilder);
+</script>
 
 </body>
 </html>

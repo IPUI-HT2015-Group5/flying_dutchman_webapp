@@ -3,6 +3,27 @@
  */
 
 /**
+ * A function that performs a login based on a form input.
+ * @param form The input form with the needed data.
+ */
+function logIn(form) {
+    // The Pub API list
+    var user = form.username.value;
+    var pass = form.password.value;
+    var action = "payments_get";
+    var PubAPI = "http://pub.jamaica-inn.net/fpdb/api.php?username=" + user + "&password=" + pass + "&action=" + action;
+
+    //alert("Login with data: \"" + user + "," + pass + "\"");
+    $.getJSON(PubAPI, function (data) {
+        alert("Data fetched! " + data.toString());
+    }).done(function() {
+        alert("Login success!");
+    }).fail(function() {
+        alert("Login failure!");
+    });
+}
+
+/**
  * A function that inserts an unordered list in a container (usually, a div), with some remote API call.
  * @param action The specific call to the RPC API.
  * @param user The user that makes the call.
@@ -18,11 +39,11 @@ function createUnorderedList(action, user, pass, parentID, listID, elementBuilde
     $('#' + parentID).append("<ul id="+ listID + "></ul>");
 
     $.getJSON(PubAPI, function (data) {
-            $.each(data.payload, function (i, item) {
-                console.log(elementBuilder(item));
-                $('#' + listID).append(elementBuilder(item));
-            });
+        $.each(data.payload, function (i, item) {
+            console.log(elementBuilder(item));
+            $('#' + listID).append(elementBuilder(item));
         });
+    });
 }
 
 /**
@@ -40,49 +61,4 @@ function beerListElementBuilder(item) {
         "Beer count in stock: " + item.count + " | " +
         "Beer price: " + item.price + "" +
         "</li>";
-}
-
-function login(form) {
-
-    var user = form.username.value;
-    var pass = form.password.value;
-    alert("Hello, " + user + " with password " + pass);
-
-    var action = "inventory_get";
-    //var admins = ["jorass", "ervtod", "hirchr", "saskru", "svetor"];
-    var PubAPI = "http://pub.jamaica-inn.net/fpdb/api.php?username=" + user + "&password=" + pass + "&action=" + action;
-    console.log(PubAPI);
-
-    $.getJSON(PubAPI, function (data) {
-            alert("Data fetched! " + data);
-            /*
-            if (data.type == action) {
-                alert("Login succesful with data: " + _user + "," + _pass);
-                localStorage.setItem("user", _user);
-                localStorage.setItem("pass", _pass);
-
-                if ($.inArray(_user, admins) > -1) {
-                    //window.location.href = 'generic-page-json.html';
-                    alert(localStorage.getItem("user") + " is an admin!");
-                } else {
-                    alert(localStorage.getItem("user") + " is an user!");
-                    //window.location.href = 'vip-generic-json.html';
-                }
-            } else {
-                alert("Wrong login!");
-                console.log("Wrong login!");
-                //window.location.href = this.href;
-            }
-            */
-        })
-        .done(
-            function () {
-                alert("Success!");
-            }
-        )
-        .fail(
-            function (data) {
-                alert("Problems here, calling the URL: " + PubAPI + ", returned: " + data);
-            }
-        );
 }
