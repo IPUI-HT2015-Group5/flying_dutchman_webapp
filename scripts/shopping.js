@@ -51,6 +51,8 @@ function addBeer(ev,dropElementID) {
             $("#" + movedID).clone().prop("id", newButtonID)
         );
     }
+
+    countclick(ev, number,dropElementID);
 }
 
 /**
@@ -77,4 +79,38 @@ function removeBeer(ev, parentID) {
         $("#" + movedID).remove();
         $("#" + oldDivID).remove();
     }
+}
+
+function iObject() {
+    this.i;
+    return this;
+}
+
+var myObject=new iObject();
+myObject.i=0;
+var myObject2=new iObject();
+myObject2.i=0;
+array=new Array();
+
+
+function countclick(tag, ID, parentID) {
+    myObject.i++;
+    var y=myObject.i;
+    var x=ID;
+    array[y]=x;
+    parentID=array;
+    alert("Countclick" + parentID);
+    return parentID;
+
+}
+
+function undo(tag,parentID) {
+
+    var z=array.length;
+    array.pop();
+alert ("undo" + array);
+}
+
+function redo(tag) {
+alert("redo")
 }

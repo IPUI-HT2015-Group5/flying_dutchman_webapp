@@ -10,9 +10,7 @@
     <script type="application/javascript" src="../scripts/helpers.js"></script>
     <script type="application/javascript" src="../scripts/html_builders.js"></script>
     <script type="application/javascript" src="../scripts/client.js"></script>
-    <script type="application/javascript" src="../scripts/shopping.js">
-
-    </script>
+    <script type="application/javascript" src="../scripts/shopping.js"></script>
 </head>
 <body>
 
@@ -27,8 +25,16 @@
                     Remove Beer
                 </button>
             </div>
+            <div>
+                <button class="myBeerButton" onclick="undo(event, 'beers-to-buy')">
+                    Undo
+                </button>
+                <button class="myBeerButton" onclick="redo(event, 'beers-to-buy')">
+                    Redo
+                </button>
+            </div>
             <div id="beers-to-buy" class="scrollable-list"
-                 ondrop="addBeer(event, this.id)" ondragover="allowDrop(event)" ondragstart="drag(event)">
+                   ondrop="addBeer(event, this.id)" ondragover="allowDrop(event)" ondragstart="drag(event)">
                 <!-- Handled by JavaScript! -->
             </div>
         </div>
