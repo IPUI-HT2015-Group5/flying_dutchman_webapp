@@ -51,3 +51,22 @@ function createUnorderedList(action, user, pass, APICall, parentID, listID, elem
         });
     });
 }
+
+/**
+ * A function that inserts an unordered list in a container (usually, a div), with some remote API call.
+ * @param action The specific call to the RPC API.
+ * @param APICall The API call, with the correct privileges level.
+ * @param parentID The ID of the parent of the list.
+ * @param listID The ID of the list of elements.
+ * @param elementBuilder A function that creates the proper element in the list.
+ */
+function createUnorderedListWithID(action, user, pass, APICall, parentID, listID, elementBuilder) {
+    $('#' + parentID).append("<ul id="+ listID + "></ul>");
+
+    APICall(action, user, pass, function (data) {
+        $.each(data.payload, function (i, item) {
+            //console.log(elementBuilder(item));
+            $('#' + listID).append(elementBuilder(item, i));
+        });
+    });
+}
