@@ -1,10 +1,10 @@
 body {
-    background-color: #FA3817;
+    background-color: #F0C171;
 
 }
 
 div {
-    color: black;
+    color: #91b8b3;
     border: solid;
 }
 
@@ -18,7 +18,7 @@ div {
 
     width: 95%;
 
-    border-color: black;
+    border-color: #91b8b3;
 
 
 
@@ -28,18 +28,18 @@ div {
 .img {
     position: fixed;
     top: 160px;
-    left: 340px;
+    left: 35%;
 
-    border:7px solid black;
+    border:7px solid #91b8b3;
 }
 
 .login-element {
 
-    border-color: black;
+    border-color: #91b8b3;
     border: 7pt;
 
     float: right;
 
-    background-color: #7A1B0B;
+    background-color: #91b8b3;
     transition-duration: 1s;
 }

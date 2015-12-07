@@ -1,12 +1,12 @@
 body {
-    background-color: #FA3817;
+    background-color: #F0C171;
 }
 
 .myButton {
     float:left;
-    -moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;
-    -webkit-box-shadow:inset 0px 1px 3px 0px #91b8b3;
-    box-shadow:inset 0px 1px 3px 0px #91b8b3;
+    -moz-box-shadow:inset 0px 1px 4px 0px #91b8b3;
+    -webkit-box-shadow:inset 0px 1px 4px 0px #91b8b3;
+    box-shadow:inset 0px 1px 4px 0px #91b8b3;
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #768d87), color-stop(1, #6c7c7c));
     background:-moz-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
     background:-webkit-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
