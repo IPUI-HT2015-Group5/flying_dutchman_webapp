@@ -45,12 +45,11 @@
 <div class="Welcome">This is a test</div>
 
 <div class="translator">
-    <a class="myButton" onclick="makeTranslation('swedish')">Translate to Swedish</a>
-    <a class="myButton" onclick="makeTranslation('english')">Translate to English</a>
+    <button class="myButton" onclick="makeTranslation('other')"><a class="test">Translate</a></button>
 </div>
 
 <script>
-    console.log(localStorage.getItem("language"));
+    console.log("The detected language is: " + localStorage.getItem("language"));
     makeTranslation(localStorage.getItem("language"));
     //createBeerList("yadda", "yadda", "json-experiment" , "beer-list", beerListElementBuilder);
 </script>

@@ -4,4 +4,8 @@
         <english>Welcome!</english>
         <swedish>Välkommen!</swedish>
     </translation>
+    <translation id="test">
+        <english>Translate to Swedish</english>
+        <swedish>Översätt till Engelska</swedish>
+    </translation>
 </translations>

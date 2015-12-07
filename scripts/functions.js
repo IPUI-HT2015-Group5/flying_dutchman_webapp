@@ -29,9 +29,17 @@ function logIn(form) {
 // Some changes have been made by Martin, all based on Marc's code.
 
 function makeTranslation(language) {
-    if (localStorage.getItem("language").length == 0) {
+    if (localStorage.getItem("language") == null) {
         var language = "english";
         console.log("This is the first time loading this page, we got no stored language. :(")
+    } else if (language == "other") {
+        if (localStorage.getItem("language") == "swedish") {
+            var language = "english";
+            console.log("Changed language to english")
+        } else {
+            var language = "swedish";
+            console.log("Changed language to Swedish")
+        }
     }
     $.ajax({
         url: 'language.xml',
