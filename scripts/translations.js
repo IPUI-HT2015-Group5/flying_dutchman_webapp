@@ -9,7 +9,7 @@
 //  $(function() { should be used
 // each time you use jQuery
 
-$(function makeTranslation(language) {
+function makeTranslation(language) {
 
     // Here we set the language
     // we want to display:
@@ -60,4 +60,4 @@ $(function makeTranslation(language) {
             });
         }
     });
-});
+}
