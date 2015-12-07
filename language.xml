@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<translations>
+    <translation id="Welcome">
+        <english>Welcome!</english>
+        <swedish>Välkommen!</swedish>
+    </translation>
+    <translation id="login">
+        <english>Login</english>
+        <swedish>Logga in</swedish>
+    </translation>
+</translations>
