@@ -19,3 +19,17 @@ function beerListElementBuilder(item) {
         "Beer price: " + item.price + "" +
         "</li>";
 }
+
+function beerButtonListElementBuilder(item) {
+    if (item.count > 0 && item.namn.length > 0) {
+        if (item.namn2.length > 0)
+            return "<div></div><button disabled class=\"myBeerButton\">" +
+                item.namn + " (" + item.namn2 + "): " + item.price +
+                "</button></div>";
+        else
+            return "<div></div><button disabled class=\"myBeerButton\">" +
+                item.namn + ": " + item.price +
+                "</button></div>";
+    } else
+        return "";
+}

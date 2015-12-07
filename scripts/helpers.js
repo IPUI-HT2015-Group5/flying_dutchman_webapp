@@ -46,7 +46,7 @@ function createUnorderedList(action, user, pass, APICall, parentID, listID, elem
 
     APICall(action, user, pass, function (data) {
         $.each(data.payload, function (i, item) {
-            console.log(elementBuilder(item));
+            //console.log(elementBuilder(item));
             $('#' + listID).append(elementBuilder(item));
         });
     });

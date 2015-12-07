@@ -16,3 +16,8 @@ function createBeerList(user, pass, parentID, listID, elementBuilder){
     // Using the createUnorderedList helper function
     return createUnorderedList("inventory_get", user, pass, pubAPIAdminCall, parentID, listID, elementBuilder);
 }
+
+function getIOU(user, pass, parentID, listID, elementBuilder){
+    // Using the createUnorderedList helper function
+    return createUnorderedList("iou_get", user, pass, pubAPICall, parentID, listID, elementBuilder);
+}

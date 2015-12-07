@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generic page</title>
+    <link rel="stylesheet" href="../styles/generic-page.css">
+    <link rel="stylesheet" href="../styles/shopping.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="application/javascript" src="../scripts/functions.js"></script>
+    <script type="application/javascript" src="../scripts/helpers.js"></script>
+    <script type="application/javascript" src="../scripts/html_builders.js"></script>
+    <script type="application/javascript" src="../scripts/client.js"></script>
+</head>
+<body>
+
+<div id="main-body">
+    <div id="sidebar">
+        <div id="sidebar-top">
+            Buy a beer! :D
+        </div>
+        <div id="sidebar-bottom">
+            Here it is your beer!
+            <div id="beers-to-buy" class="scrollable-list">
+                <!-- Handled by JavaScript! -->
+                <button disabled class="myButton">beer</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="main">
+        Stuff here
+        <div id="available-beers" class="scrollable-list">
+            <!-- Handled by JavaScript! -->
+        </div>
+    </div>
+</div>
+
+<script>
+    createBeerList("me", "me", "available-beers", "beer-list", beerButtonListElementBuilder);
+</script>
+
+</body>
+</html>
