@@ -28,7 +28,7 @@
                 </button>
             </div>
             <div id="beers-to-buy" class="scrollable-list"
-                 ondrop="dropToBuy(event)" ondragover="allowDrop(event)" ondragstart="drag(event)">
+                 ondrop="addBeer(event, this.id)" ondragover="allowDrop(event)" ondragstart="drag(event)">
                 <!-- Handled by JavaScript! -->
             </div>
         </div>
