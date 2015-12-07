@@ -10,45 +10,8 @@
     <script type="application/javascript" src="../scripts/helpers.js"></script>
     <script type="application/javascript" src="../scripts/html_builders.js"></script>
     <script type="application/javascript" src="../scripts/client.js"></script>
-    <script>
-        /*
-        // Allow drop on not-expected items
-        $(".myBeerButton").droppable({
-            drop: function( event, ui ) {
-                var $kid = $(ui.draggable);
-                var $dad = $(this);
-                if($kid.parent() !== $dad) {
-                    $kid.appendTo($dad);
-                    //$kid.css('left', $kid.left() - $dad.left());
-                    //$kid.css('top', $kid.top() - $dad.top());
-                }
-            }
-        });
-        */
-        function allowDrop(ev) {
-            ev.preventDefault();
-        }
+    <script type="application/javascript" src="../scripts/shopping.js">
 
-        function drag(ev) {
-            ev.dataTransfer.setData("text", ev.target.id);
-        }
-
-        function dropToBuy(ev, removedListID) {
-            ev.preventDefault();
-            var movedID = ev.dataTransfer.getData("text");
-            var divID = "beerButtonContainer" + movedID.replace("beerButton", "");
-            console.log("Drop to buy: " + movedID + "," + divID);
-            ev.target.appendChild(document.getElementById(movedID));
-            // Remove the empty div
-            $("#" + removedListID).children("#" + divID).remove();
-        }
-
-        function dropAvailable(ev, removedListID) {
-            ev.preventDefault();
-            var movedID = ev.dataTransfer.getData("text");
-            console.log(movedID);
-            $("#" + removedListID).children("#" + movedID).remove();
-        }
     </script>
 </head>
 <body>
@@ -59,11 +22,14 @@
             Buy a beer! :D
         </div>
         <div id="sidebar-bottom">
-            Here it is your beer!
+            <div id="trash-beer">
+                <button class="myBeerButton" ondrop="removeBeer(event, 'beers-to-buy')" ondragover="allowDrop(event)">
+                    Remove Beer
+                </button>
+            </div>
             <div id="beers-to-buy" class="scrollable-list"
                  ondrop="dropToBuy(event)" ondragover="allowDrop(event)" ondragstart="drag(event)">
                 <!-- Handled by JavaScript! -->
-                <button draggable="true" class="myButton">Beer</button>
             </div>
         </div>
     </div>
@@ -71,7 +37,7 @@
     <div id="main">
         Stuff here
         <div id="available-beers" class="scrollable-list"
-             ondrop="dropAvailable(event, 'beers-to-buy')" ondragover="allowDrop(event)" ondragstart="drag(event)">
+             ondrop="removeBeer(event, 'beers-to-buy')" ondragover="allowDrop(event)" ondragstart="drag(event)">
             <!-- Handled by JavaScript! -->
         </div>
     </div>
