@@ -22,3 +22,28 @@ function logIn(form) {
         alert("Login failure!");
     });
 }
+
+
+// The credit for this code should be given Marc von Brockdorff at
+// "http://www.webgeekly.com/tutorials/jquery/how-to-make-your-site-multilingual-using-xml-and-jquery/"
+// Some changes have been made by Martin, all based on Marc's code.
+
+function makeTranslation(language) {
+    if (localStorage.getItem("language").length == 0) {
+        var language = "english";
+        console.log("This is the first time loading this page, we got no stored language. :(")
+    }
+    $.ajax({
+        url: 'language.xml',
+
+        success: function(xml) {
+            $(xml).find('translation').each(function(){
+                var id = $(this).attr('id');
+                var text = $(this).find(language).text();
+                $("." + id).html(text);
+            });
+            console.log("made a translation to: " + language + " :)");
+            localStorage.setItem("language", language);
+        }
+    });
+}

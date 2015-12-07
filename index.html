@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Flying DutchMan Pub!</title>
-    <link href="login.css" type="text/css" rel="stylesheet">
+    <!--<link href="login.css" type="text/css" rel="stylesheet">-->
+    <link rel="stylesheet" href="styles/generic-page.css">
     <script type="application/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script type="application/javascript" src="scripts/functions.js"></script>
     <script type="application/javascript" src="scripts/admin.js"></script>
     <script type="application/javascript" src="scripts/client.js"></script>
     <script type="application/javascript" src="scripts/html_builders.js"></script>
     <script type="application/javascript" src="scripts/helpers.js"></script>
-    <script type="application/javascript" src="scripts/translations.js"></script>
 </head>
 
 
@@ -44,7 +44,14 @@
 
 <div class="Welcome">This is a test</div>
 
+<div class="translator">
+    <a class="myButton" onclick="makeTranslation('swedish')">Translate to Swedish</a>
+    <a class="myButton" onclick="makeTranslation('english')">Translate to English</a>
+</div>
+
 <script>
+    console.log(localStorage.getItem("language"));
+    makeTranslation(localStorage.getItem("language"));
     //createBeerList("yadda", "yadda", "json-experiment" , "beer-list", beerListElementBuilder);
 </script>
 
