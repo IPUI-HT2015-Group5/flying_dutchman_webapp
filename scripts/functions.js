@@ -32,11 +32,11 @@ function logIn(event) {
             canMakeTheCall(adminAction, user, pass, truth);
             if (truth) {
                 console.log("We are an admin!");
-                window.location.href = "admin_start.html";
+                window.location.href = "shopping.html";
             }
             else {
                 console.log("We are an user!");
-                window.location.href = "client_start.html";
+                window.location.href = "shopping.html";
             }
         }
         console.log("Logged in as " + localStorage.getItem("username"));
