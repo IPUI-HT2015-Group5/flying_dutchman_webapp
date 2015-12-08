@@ -25,7 +25,7 @@ body {
     font-family:Arial;
     font-size:15px;
     font-weight:bold;
-    padding:11px 23px;
+    padding:5px 10px;
     text-decoration:none;
     text-shadow:0px -1px 0px #2b665e;
 }
@@ -39,7 +39,10 @@ body {
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87',GradientType=0);
     background-color:#6c7c7c;
 }
-
+.myButton:active {
+    position:relative;
+    top:1px;
+}
 .scrollable-list {
     overflow-y: auto;
 }
@@ -82,7 +85,22 @@ body {
     text-shadow:0px -1px 0px #2b665e;
 }
 
+.myBeerButton:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6c7c7c), color-stop(1, #768d87));
+    background:-moz-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+    background:-webkit-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+    background:-o-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+    background:-ms-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+    background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87',GradientType=0);
+    background-color:#6c7c7c;
+}
 
+.myBeerButton:active {
+    position:relative;
+    top:1px;
+
+}
 
 #trash-beer {
     float: none;
@@ -97,12 +115,6 @@ body {
     border: 2px darkgrey solid;
     border-radius: 0px 20px 20px 20px;
     z-index: 2;
-}
-
-.myButton:active {
-    position:relative;
-    top:1px;
-
 }
 
 
