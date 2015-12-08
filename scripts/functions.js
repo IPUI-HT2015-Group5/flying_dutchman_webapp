@@ -13,7 +13,8 @@ function logIn(form) {
     var pass = form.password.value;
     var action = "payments_get";
 
-    //alert("Login with data: \"" + user + "," + pass + "\"");
+    console.log("Login with data: \"" + user + "," + pass + "\"");
+    alert("Login with data: \"" + user + "," + pass + "\"");
     pubAPICall(action, user, pass, function (data) {
         alert("Data fetched! " + data.toString());
     }).done(function() {
