@@ -16,6 +16,9 @@
 
 
 <body>
+<div id="translator">
+    <button class="myButton" onclick="makeTranslation('other')"><a class="test">Translate</a></button>
+</div>
 
 <div class="header">
     <h1>
@@ -44,9 +47,6 @@
 
 <div class="Welcome">This is a test</div>
 
-<div id="translator">
-    <button class="myButton" onclick="makeTranslation('other')"><a class="test">Translate</a></button>
-</div>
 
 <script>
     console.log("The detected language is: " + localStorage.getItem("language"));
