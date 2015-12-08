@@ -86,7 +86,7 @@ function login(form) {
             }
         );
 }
-{$(function knapp()
+/*{$(function knapp()
     $("#tooltip").hide();
 
 $("#demo").click(function() {
@@ -94,6 +94,6 @@ $("#demo").click(function() {
 })
 )
 }
-
+*/
 
 
