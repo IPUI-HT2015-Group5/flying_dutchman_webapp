@@ -14,11 +14,12 @@ function logIn(form) {
     var action = "payments_get";
 
     console.log("Login with data: \"" + user + "," + pass + "\"");
-    alert("Login with data: \"" + user + "," + pass + "\"");
+    //alert("Login with data: \"" + user + "," + pass + "\"");
     pubAPICall(action, user, pass, function (data) {
         console.log("Data fetched! " + data.toString());
     }).done(function(data) {
         console.log("Login success! ");
+        window.location.href = 'client/shopping.html';
     }).fail(function(obj, txt, e) {
         console.log("Login failure! " + e + txt);
     });
