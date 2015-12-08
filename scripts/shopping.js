@@ -97,6 +97,9 @@ function countclick(funcName, parentID, movedID, ev) {
     if (funcName=="addBeer"){
         divWayBeerToBuy=ev.target;
     }
+    while (store_undo.length > 0) {
+        store_undo.pop();
+    }
     return ;
 
 }
@@ -165,14 +168,15 @@ function undo(ev) {
   //  alert(store)
     store_undo.unshift(store[0]);
     store.shift();
+   // alert("Store: "+ store + "  Inviterad store: " + store_undo);
   // alert(store)
 }
 
 function redo(ev) {
-   // alert("Store: "+ store + "  Inviterad store: " + store_undo);
-    if (store_undo[0][0]=="addBeer"){
-        var parentID=store_undo[0][1];
-        var movedID=store_undo[0][2];
+    //alert("Store: "+ store + "  Inviterad store: " + store_undo);
+    if (store_undo[0][0] == "addBeer") {
+        var parentID = store_undo[0][1];
+        var movedID = store_undo[0][2];
         var number = movedID.replace("beerButton", "");
         // Create the new IDs
         var divID = "beerButtonContainer" + number;
@@ -184,41 +188,33 @@ function redo(ev) {
             findNextNumber("beerToBuyButton" + number + "_", 0);
 
 
-            $(divWayBeerToBuy).append(
-                $("#" + divID).clone().empty().prop("id", newDivID)
-            );
-            // And add the new one!
-            $("#" + newDivID).append(
-                $("#" + movedID).clone().prop("id", newButtonID)
-            );
+        $(divWayBeerToBuy).append(
+            $("#" + divID).clone().empty().prop("id", newDivID)
+        );
+        // And add the new one!
+        $("#" + newDivID).append(
+            $("#" + movedID).clone().prop("id", newButtonID)
+        );
 
 
     }
-    else if (store_undo[0][0]=="removeBeer") {
-        var dropElementID=store_undo[0][1];
-        var movedID=store_undo[0][2];
-
-        var number = movedID.replace("beerButton", "");
+    else if (store_undo[0][0] == "removeBeer") {
+        var parentID = store_undo[0][1];
+        var movedID = store_undo[0][2];
+        var number = movedID.replace("beerToBuyButton", "");
         // Create the new IDs
-        var divID = "beerButtonContainer" + number;
+        var oldDivID = "beerToBuyButtonContainer" + number;
 
-        // Allow multiple selection of the same beer
-        var newDivID = "beerToBuyButtonContainer" + number + "_" +
-            findNextNumber("beerToBuyButtonContainer" + number + "_", 0);
-        var newButtonID = "beerToBuyButton" + number + "_" +
-            findNextNumber("beerToBuyButton" + number + "_", 0);
-
-        // Drop just in the correct element (check done with the ID)
-        if(event.target.id == dropElementID) {
-            // Create a new container div...
-            $(ev.target).append(
-                $("#" + divID).clone().empty().prop("id", newDivID)
-            );
-            // And add the new one!
-            $("#" + newDivID).append(
-                $("#" + movedID).clone().prop("id", newButtonID)
-            );
+        /* Delete the elements, just if the correct parent is the one we look for
+         Actually, the structure is like:
+         list -> container div -> button
+         So we should check for the "grandparent" (parent's parent).
+         */
+        if ($("#" + movedID).parent().parent().prop("id") == parentID) {
+            $("#" + movedID).remove();
+            $("#" + oldDivID).remove();
         }
+
     }
 
     store.unshift(store_undo[0]);
