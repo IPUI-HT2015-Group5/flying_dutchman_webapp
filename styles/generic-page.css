@@ -70,9 +70,6 @@ body {
     background:-ms-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
     background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#768d87', endColorstr='#6c7c7c',GradientType=0);
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border-radius:5px;
     border:1px solid #566963;
     display:inline-block;
     cursor:pointer;

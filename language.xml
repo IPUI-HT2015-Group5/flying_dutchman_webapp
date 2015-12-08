@@ -24,6 +24,10 @@
         <english>Remove beer</english>
         <swedish>Ta bort öl</swedish>
     </translation>
+    <translation id="Remove_all_beers">
+        <english>Remove all beers</english>
+        <swedish>Ta bort alla öler</swedish>
+    </translation>
     <translation id="undo">
         <english>Undo</english>
         <swedish>Gör om, gör rätt.</swedish>
