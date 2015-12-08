@@ -52,7 +52,7 @@ function addBeer(ev,dropElementID) {
         );
     }
 
-    countclick("addBeer",dropElementID, movedID);
+    countclick("addBeer",dropElementID, movedID, ev);
 }
 
 /**
@@ -81,25 +81,28 @@ function removeBeer(ev, parentID) {
         $("#" + oldDivID).remove();
     }
     //alert(ev + "removeBeer"+number+ parentID + movedID)
-    countclick("removeBeer", parentID, movedID);
+    countclick("removeBeer", parentID, movedID,ev);
 }
 
 
-store=[]
-store_undo=[]
+store=[]; //Stores what have been done
+store_undo=[]; //Stores what have been un-done
+var divWayBeerToBuy;
 
 
-function countclick(funcName, parentID, movedID) {
+function countclick(funcName, parentID, movedID, ev) {
     store.unshift([funcName,parentID, movedID]);
     //alert (store);
-    alert("Store: "+ store + "  Inviterad store: " + store_undo);
-
+    //alert("Store: "+ store + "  Inviterad store: " + store_undo);
+    if (funcName=="addBeer"){
+        divWayBeerToBuy=ev.target;
+    }
     return ;
 
 }
 
 function undo(ev) {
-    alert("Store: "+ store + "  Inviterad store: " + store_undo);
+    //alert("Store: "+ store + "  Inviterad store: " + store_undo);
     if (store[0][0]=="addBeer"){
         var parentID=store[0][1];
         var movedID=store[0][2];
@@ -137,8 +140,8 @@ function undo(ev) {
             findNextNumber("beerToBuyButton" + number + "_", 0);
 
         // Drop just in the correct element (check done with the ID)
-        var tempDivID = "beers-to-buy"+number;
-        $(tempDivID).append(
+
+        $(divWayBeerToBuy).append(
             $("#" + divID).clone().empty().prop("id", newDivID)
         );
         $("#" + newDivID).append(
@@ -166,7 +169,7 @@ function undo(ev) {
 }
 
 function redo(ev) {
-    alert("Store: "+ store + "  Inviterad store: " + store_undo);
+   // alert("Store: "+ store + "  Inviterad store: " + store_undo);
     if (store_undo[0][0]=="addBeer"){
         var parentID=store_undo[0][1];
         var movedID=store_undo[0][2];
@@ -180,17 +183,15 @@ function redo(ev) {
         var newButtonID = "beerToBuyButton" + number + "_" +
             findNextNumber("beerToBuyButton" + number + "_", 0);
 
-        // Drop just in the correct element (check done with the ID)
-        if(event.target.id == dropElementID) {
-            // Create a new container div...
-            $(ev.target).append(
+
+            $(divWayBeerToBuy).append(
                 $("#" + divID).clone().empty().prop("id", newDivID)
             );
             // And add the new one!
             $("#" + newDivID).append(
                 $("#" + movedID).clone().prop("id", newButtonID)
             );
-        }
+
 
     }
     else if (store_undo[0][0]=="removeBeer") {
@@ -219,8 +220,7 @@ function redo(ev) {
             );
         }
     }
-    alert(store);
-    alert(store_undo);
+
     store.unshift(store_undo[0]);
     store_undo.shift();
 }
