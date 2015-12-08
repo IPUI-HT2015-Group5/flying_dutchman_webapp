@@ -90,12 +90,12 @@ store_undo=[]; //Stores what have been un-done
 var divWayBeerToBuy;
 
 
-function countclick(funcName, parentID, movedID, ev) {
+function countclick(funcName, parentID, movedID) {
     store.unshift([funcName,parentID, movedID]);
     //alert (store);
     //alert("Store: "+ store + "  Inviterad store: " + store_undo);
     if (funcName=="addBeer"){
-        divWayBeerToBuy=ev.target;
+        divWayBeerToBuy="#"+parentID;
     }
     while (store_undo.length > 0) {
         store_undo.pop();

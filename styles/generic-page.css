@@ -45,6 +45,7 @@ body {
 }
 .scrollable-list {
     overflow-y: auto;
+
 }
 
 #available-beers {
@@ -207,3 +208,4 @@ h1 {
 .header2 div span{
     color: #fff !important;
 }
+
