@@ -18,8 +18,10 @@ function logIn(form) {
     pubAPICall(action, user, pass, function (data) {
         console.log("Data fetched! " + data.toString());
     }).done(function(data) {
-        console.log("Login success! ");
-        window.location.href = 'client/shopping.html';
+        console.log("Login success! " + data.username);
+        if (user = data.username) {
+            window.location.href = '../shopping.html';
+        }
     }).fail(function(obj, txt, e) {
         console.log("Login failure! " + e + txt);
     });
