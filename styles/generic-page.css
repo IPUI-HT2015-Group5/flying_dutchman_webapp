@@ -55,10 +55,10 @@ body {
 }
 
 
-div {
+/*div {
     border: solid;
     border-color: #768d87;
-}
+}*/
 
 
 .back-element {
@@ -106,4 +106,35 @@ div {
 #translator {
     float:right;
     z-index: 1; position:relative
+}
+
+#img {
+    position: absolute;
+    height: 304px;
+    width: 400px;
+    margin: -100px 0 0 -200px;
+    top: 50%;
+    left: 50%;
+}
+
+h1 {
+    text-align: center;
+}
+
+#Welcome {
+    text-align: center;
+}
+
+.header div{
+    position: relative;
+    text-align: center;
+    margin: 100px 0 0 0;
+    color: #000;
+    font-family: 'Exo', sans-serif;
+    font-size: 55px;
+    font-weight: 200;
+}
+
+.header div span{
+    color: #fff !important;
 }

@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <translations>
     <translation id="Welcome">
-        <english>Welcome!</english>
-        <swedish>Välkommen!</swedish>
+        <english>
+            <p>Welcome to The Flying Dutchman!</p>
+            <p>Please log on to enjoy our different kind of bears.</p>
+            <p>Ps. Please do NOT feed the beer.</p>
+        </english>
+        <swedish>
+            <p>Välkommen till The Flying Dutchman!</p>
+            <p>Vänligen logga in för att ta del av vårt stora björnsortiment.</p>
+            <p>Ps. Mata inte ölen. Ds. </p>
+        </swedish>
+    </translation>
+    <translation id="login">
+        <english>Login</english>
+        <swedish>Logga in</swedish>
     </translation>
     <translation id="test">
         <english>Translate to Swedish</english>
