@@ -50,13 +50,17 @@ body {
 
 #available-beers {
     max-height: 90vh;
+    max-width: 550px;
     right: 5px;
 }
 
 #beers-to-buy {
+    border: solid;
     float: none;
     min-height: 60vh;
     max-height: 70vh;
+    max-width: 550px;
+    z-index: 2;
 }
 
 .myBeerButton {
@@ -130,36 +134,39 @@ body {
 }
 
 #main-body {
-    position: absolute;
+    border-top: solid;
+    margin: auto;
+    width: 100%;
+    /*border:3px solid #73AD21;
+    padding: 10px;*/
+    position: relative;
     top: 0;
     bottom: 0;
+    max-width: 900px;
     height: 100%;
-    width: 100%;
 }
 
 #sidebar {
-    width: 30%;
+    width: 300px;
+    top: 80px;
+    margin: auto;
     float: left;
 }
 
 #sidebar-top {
-    position: absolute;
-    top: 80px;
-    width: 30%;
-    height: 25%;
-    float: left;
+    margin: auto;
+    width: 300px;
+    min-height: 50px;
 }
 
 #sidebar-bottom {
     position: absolute;
-    top: 25%;
-    width: 30%;
+    width: 300px;
     min-height: 75%;
-    float: left;
 }
 
 #main {
-    position: absolute;
+    float: left;
     top: 80px;
     left: 31%;
 }
@@ -190,11 +197,24 @@ h1 {
     text-align: center;
 }
 
-.shopping div {
+/*shopping div {
     border: solid;
     border-color: #BA2A11;
+}*/
+
+.header div{
+    position: relative;
+    text-align: center;
+    margin: 10% 0 0 0;
+    color: #000;
+    font-family: 'Exo', sans-serif;
+    font-size: 55px;
+    font-weight: 200;
 }
 
+.header div span{
+    color: #fff !important;
+}
 .header2 div{
     position: relative;
     text-align: center;
@@ -209,3 +229,31 @@ h1 {
     color: #fff !important;
 }
 
+.order {
+    text-align: center;
+}
+
+#main-top {
+    margin: auto;
+    width: 600px;
+    min-height: 50px;
+    text-align: center;
+    border-bottom: solid;
+}
+
+.list_beers {
+}
+
+.ammount {
+    border-top: solid;
+    border-bottom: solid;
+    padding-top: 5px;
+    font-family: 'Exo', sans-serif;
+    font-size: 20px;
+    min-height: 30px;
+    text-align: left;
+}
+
+#test {
+    float: right;
+}

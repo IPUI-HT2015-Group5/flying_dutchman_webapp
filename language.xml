@@ -36,8 +36,20 @@
         <english>Redo</english>
         <swedish>Gör om, gjorde rätt.</swedish>
     </translation>
-    <translation id="buy_a_beer">
-        <english>Buy a beer! :D</english>
-        <swedish>Köp en öl! :D</swedish>
+    <translation id="total_ammount">
+        <english>Ammount:</english>
+        <swedish>Summa:</swedish>
+    </translation>
+    <translation id="order">
+        <english>To order a beer, please drag it to the area below.</english>
+        <swedish>För att beställa en öl, vänligen dra den till området nedan.</swedish>
+    </translation>
+    <translation id="list_beers">
+        <english>Below you'll find all available bears.</english>
+        <swedish>Nedan finner du alla tillgängliga björnar.</swedish>
+    </translation>
+    <translation id="buy">
+        <english>Pay</english>
+        <swedish>Betala</swedish>
     </translation>
 </translations>
