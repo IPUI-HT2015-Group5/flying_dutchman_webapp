@@ -91,3 +91,20 @@ function findNextNumber(elementID, initialValue) {
     else
         return findNextNumber(elementID, (initialValue + 1));
 }
+
+/**
+ * An helper function to get information from the remote DB API and handle them properly.
+ * @param action The API call to test.
+ * @param user The user which makes the call.
+ * @param pass The password of the user mentioned above.
+ */
+function canMakeTheCall(action, user, pass, truth) {
+    // Use JQuery getJSON
+    pubAPICall(action, user, pass, function (data) {
+        // If we can make the call, we have data.type equal to the API call name.
+        console.log("Test elements: " + data.type + ", " + action);
+        console.log("Test 1: " + (data.type == action));
+        truth = (data.type == action);
+        console.log("Test 2: " + truth);
+    });
+}

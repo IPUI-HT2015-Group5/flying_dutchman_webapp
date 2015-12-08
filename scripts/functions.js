@@ -5,22 +5,42 @@
 
 /**
  * A function that performs a login based on a form input.
- * @param form The input form with the needed data.
+ * @param event The event generated when submitting data.
  */
-function logIn(form) {
-    // The Pub API list
-    var user = form.username.value;
-    var pass = form.password.value;
+function logIn(event) {
+    // Prevent page reload on form submit
+    event.preventDefault();
+    // Get data through JQuery
+    var user = $("#username").val();
+    var pass = $("#password").val();
+    // Static values for test API calls.
     var action = "payments_get";
+    var adminAction = "payments_get_all";
+    var truth = false;
 
-    console.log("Login with data: \"" + user + "," + pass + "\"");
-    //alert("Login with data: \"" + user + "," + pass + "\"");
-    pubAPICall(action, user, pass, function (data) {
-        console.log("Data fetched! " + data.toString());
-    }).done(function(data) {
-        console.log("Login success! " + data.username);
-            window.location.href = 'shopping.html';
-    }).fail(function(obj, txt, e) {
+    pubAPICall(action, user, pass).done(function (data) {
+        canMakeTheCall(action, user, pass, truth);
+        console.log("Result of client: "  + truth);
+        canMakeTheCall(adminAction, user, pass, truth);
+        console.log("Result of admin: " + truth);
+
+        if (data.type == "error") {
+            alert("Error during login: " + data.payload[0].msg + " (error code: " + data.payload[0].code + ")");
+        } else {
+            localStorage.setItem("username", user);
+            localStorage.setItem("password", pass);
+            canMakeTheCall(adminAction, user, pass, truth);
+            if (truth) {
+                console.log("We are an admin!");
+                window.location.href = "admin_start.html";
+            }
+            else {
+                console.log("We are an user!");
+                window.location.href = "client_start.html";
+            }
+        }
+        console.log("Logged in as " + localStorage.getItem("username"));
+        }).fail(function(obj, txt, e) {
         console.log("Login failure! " + e + txt);
     });
 }
