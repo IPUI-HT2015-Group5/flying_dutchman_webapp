@@ -5,6 +5,7 @@
     <title>Flying DutchMan Pub!</title>
     <!--<link href="login.css" type="text/css" rel="stylesheet">-->
     <link rel="stylesheet" href="styles/generic-page.css">
+
     <script type="application/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script type="application/javascript" src="scripts/functions.js"></script>
     <script type="application/javascript" src="scripts/admin.js"></script>
@@ -20,7 +21,6 @@
     <h1>
         The Flying Dutchman Pub!
     </h1>
-
 
 </div>
 
@@ -44,14 +44,13 @@
 
 <div class="Welcome">This is a test</div>
 
-<div class="translator">
+<div id="translator">
     <button class="myButton" onclick="makeTranslation('other')"><a class="test">Translate</a></button>
 </div>
 
 <script>
     console.log("The detected language is: " + localStorage.getItem("language"));
     makeTranslation(localStorage.getItem("language"));
-    //createBeerList("yadda", "yadda", "json-experiment" , "beer-list", beerListElementBuilder);
 </script>
 
 </body>

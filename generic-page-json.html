@@ -37,9 +37,15 @@
     </div>
 </div>
 
+<div id="translator">
+    <button class="myButton" onclick="makeTranslation('other')"><a class="test">Translate</a></button>
+</div>
+
 </body>
 
 <script>
+    console.log("The detected language is: " + localStorage.getItem("language"));
+    makeTranslation(localStorage.getItem("language"));
     createUnorderedList("inventory_get", "jorass", "jorass", "pub-stuff" , "beer-list", beerListElementBuilder);
 </script>
 
