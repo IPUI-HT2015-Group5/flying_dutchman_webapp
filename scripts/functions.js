@@ -15,11 +15,11 @@ function logIn(form) {
 
     //alert("Login with data: \"" + user + "," + pass + "\"");
     pubAPICall(action, user, pass, function (data) {
-        alert("Data fetched! " + data.toString());
-    }).done(function() {
-        alert("Login success!");
-    }).fail(function() {
-        alert("Login failure!");
+        console.log("Data fetched! " + data.toString());
+    }).done(function(data) {
+        console.log("Login success! ");
+    }).fail(function(obj, txt, e) {
+        console.log("Login failure! " + e + txt);
     });
 }
 
