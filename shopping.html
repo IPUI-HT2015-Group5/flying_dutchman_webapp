@@ -31,11 +31,14 @@
                 </button>
             </div>
             <div>
-                <button class="myBeerButton" onclick="undo(event, 'beers-to-buy')">
+                <button class="myBeerButton" onclick="undo()">
                     <a class="undo">Undo_</a>
                 </button>
-                <button class="myBeerButton" onclick="redo(event, 'beers-to-buy')">
-                    <a class="redo">Redo_</a>
+                <button class="myBeerButton" onclick="redo()">
+                <a class="redo">Redo_</a>
+            </button>
+                <button class="myBeerButton" onclick="clearAll(event, 'beers-to-buy')">
+                    <a class="Remove all beers.">Remove all beers.</a>
                 </button>
             </div>
             <div id="beers-to-buy" class="scrollable-list"

@@ -104,7 +104,7 @@ function countclick(funcName, parentID, movedID, ev) {
 
 }
 
-function undo(ev) {
+function undo() {
     //alert("Store: "+ store + "  Inviterad store: " + store_undo);
     if (store[0][0]=="addBeer"){
         var parentID=store[0][1];
@@ -172,7 +172,7 @@ function undo(ev) {
   // alert(store)
 }
 
-function redo(ev) {
+function redo() {
     //alert("Store: "+ store + "  Inviterad store: " + store_undo);
     if (store_undo[0][0] == "addBeer") {
         var parentID = store_undo[0][1];
