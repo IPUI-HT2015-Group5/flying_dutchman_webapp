@@ -14,23 +14,27 @@
 </head>
 <body>
 
+<div id="translator">
+    <button class="myButton" onclick="makeTranslation('other')"><a class="test">Translate</a></button>
+</div>
+
 <div id="main-body">
     <div id="sidebar">
-        <div id="sidebar-top">
-            Buy a beer! :D
+        <div id="sidebar-top" class="buy_a_beer">
+            Buy a beer! :D_
         </div>
         <div id="sidebar-bottom">
             <div id="trash-beer">
                 <button class="myBeerButton" ondrop="removeBeer(event, 'beers-to-buy')" ondragover="allowDrop(event)">
-                    Remove Beer
+                    <a class="remove_beer">Remove beer_</a>
                 </button>
             </div>
             <div>
                 <button class="myBeerButton" onclick="undo(event, 'beers-to-buy')">
-                    Undo
+                    <a class="undo">Undo_</a>
                 </button>
                 <button class="myBeerButton" onclick="redo(event, 'beers-to-buy')">
-                    Redo
+                    <a class="redo">Redo_</a>
                 </button>
             </div>
             <div id="beers-to-buy" class="scrollable-list"
@@ -39,7 +43,6 @@
             </div>
         </div>
     </div>
-
     <div id="main">
         Stuff here
         <div id="available-beers" class="scrollable-list"
@@ -50,6 +53,8 @@
 </div>
 
 <script>
+    console.log("The detected language is: " + localStorage.getItem("language"));
+    makeTranslation(localStorage.getItem("language"));
     createBeerList("me", "me", "available-beers", "beer-list", beerButtonWithIDListElementBuilder);
 </script>
 
