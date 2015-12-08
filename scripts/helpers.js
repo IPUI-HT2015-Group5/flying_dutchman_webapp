@@ -20,6 +20,8 @@ function pubAPICall(action, user, pass, handlerFunction) {
 /**
  * An helper function to call admin APIs with client-level privileges
  * @param action The specific API called.
+ * @param user Overloaded inside, is there just for compatibility.
+ * @param pass Overloaded inside, is there just for compatibility.
  * @param handlerFunction The function which handles the data got from the API call.
  */
 function pubAPIAdminCall(action, user, pass, handlerFunction) {
@@ -36,6 +38,8 @@ function pubAPIAdminCall(action, user, pass, handlerFunction) {
 /**
  * A function that inserts an unordered list in a container (usually, a div), with some remote API call.
  * @param action The specific call to the RPC API.
+ * @param user The user who makes the API call.
+ * @param pass The password of the above mentioned user.
  * @param APICall The API call, with the correct privileges level.
  * @param parentID The ID of the parent of the list.
  * @param listID The ID of the list of elements.
@@ -50,4 +54,40 @@ function createUnorderedList(action, user, pass, APICall, parentID, listID, elem
             $('#' + listID).append(elementBuilder(item));
         });
     });
+}
+
+/**
+ * A function that inserts an unordered list in a container (usually, a div), with some remote API call.
+ * @param action The specific call to the RPC API.
+ * @param user The user who makes the API call.
+ * @param pass The password of the above mentioned user.
+ * @param APICall The API call, with the correct privileges level.
+ * @param parentID The ID of the parent of the list.
+ * @param listID The ID of the list of elements.
+ * @param elementBuilder A function that creates the proper element in the list.
+ */
+function createUnorderedListWithID(action, user, pass, APICall, parentID, listID, elementBuilder) {
+    $('#' + parentID).append("<ul id="+ listID + "></ul>");
+
+    APICall(action, user, pass, function (data) {
+        $.each(data.payload, function (i, item) {
+            //console.log(elementBuilder(item));
+            $('#' + listID).append(elementBuilder(item, i));
+        });
+    });
+}
+
+/**
+ * An helper function which finds the next avaible number for the ID.
+ * It supposes that the ID is equal to elementID + initialValue (string concatenation).
+ * @param elementID The element main ID.
+ * @param initialValue The value to start the search on
+ * @returns {Number}
+ */
+function findNextNumber(elementID, initialValue) {
+    if($("#" + elementID + initialValue).length == 0) {
+        return initialValue;
+    }
+    else
+        return findNextNumber(elementID, (initialValue + 1));
 }

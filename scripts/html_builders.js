@@ -23,11 +23,29 @@ function beerListElementBuilder(item) {
 function beerButtonListElementBuilder(item) {
     if (item.count > 0 && item.namn.length > 0) {
         if (item.namn2.length > 0)
-            return "<div></div><button disabled class=\"myBeerButton\">" +
+            return "<div><button draggable='true' class=\"myBeerButton\">" +
                 item.namn + " (" + item.namn2 + "): " + item.price +
                 "</button></div>";
         else
-            return "<div></div><button disabled class=\"myBeerButton\">" +
+            return "<div><button draggable='true' class=\"myBeerButton\">" +
+                item.namn + ": " + item.price +
+                "</button></div>";
+    } else
+        return "";
+}
+
+function beerButtonWithIDListElementBuilder(item, i) {
+    if (item.count > 0 && item.namn.length > 0) {
+        if (item.namn2.length > 0)
+            return "<div id=\"beerButtonContainer" + i +"\">" +
+                "<button draggable='true' class=\"myBeerButton\"" +
+                "id=\"beerButton" + i + "\">" +
+                item.namn + " (" + item.namn2 + "): " + item.price +
+                "</button></div>";
+        else
+            return "<div id=\"beerButtonContainer" + i +"\">" +
+                "<button draggable='true' class=\"myBeerButton\"" +
+                "id=\"beerButton" + i + "\">" +
                 item.namn + ": " + item.price +
                 "</button></div>";
     } else

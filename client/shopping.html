@@ -10,6 +10,7 @@
     <script type="application/javascript" src="../scripts/helpers.js"></script>
     <script type="application/javascript" src="../scripts/html_builders.js"></script>
     <script type="application/javascript" src="../scripts/client.js"></script>
+    <script type="application/javascript" src="../scripts/shopping.js"></script>
 </head>
 <body>
 
@@ -19,24 +20,37 @@
             Buy a beer! :D
         </div>
         <div id="sidebar-bottom">
-            Here it is your beer!
-            <div id="beers-to-buy" class="scrollable-list">
+            <div id="trash-beer">
+                <button class="myBeerButton" ondrop="removeBeer(event, 'beers-to-buy')" ondragover="allowDrop(event)">
+                    Remove Beer
+                </button>
+            </div>
+            <div>
+                <button class="myBeerButton" onclick="undo(event, 'beers-to-buy')">
+                    Undo
+                </button>
+                <button class="myBeerButton" onclick="redo(event, 'beers-to-buy')">
+                    Redo
+                </button>
+            </div>
+            <div id="beers-to-buy" class="scrollable-list"
+                   ondrop="addBeer(event, this.id)" ondragover="allowDrop(event)" ondragstart="drag(event)">
                 <!-- Handled by JavaScript! -->
-                <button disabled class="myButton">beer</button>
             </div>
         </div>
     </div>
 
     <div id="main">
         Stuff here
-        <div id="available-beers" class="scrollable-list">
+        <div id="available-beers" class="scrollable-list"
+             ondrop="removeBeer(event, 'beers-to-buy')" ondragover="allowDrop(event)" ondragstart="drag(event)">
             <!-- Handled by JavaScript! -->
         </div>
     </div>
 </div>
 
 <script>
-    createBeerList("me", "me", "available-beers", "beer-list", beerButtonListElementBuilder);
+    createBeerList("me", "me", "available-beers", "beer-list", beerButtonWithIDListElementBuilder);
 </script>
 
 </body>
