@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generic page</title>
+    <link rel="stylesheet" href="styles/generic-page.css">
+    <!--<link rel="stylesheet" href="../styles/shopping.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="application/javascript" src="scripts/functions.js"></script>
+    <script type="application/javascript" src="scripts/helpers.js"></script>
+    <script type="application/javascript" src="scripts/html_builders.js"></script>
+    <script type="application/javascript" src="scripts/client.js"></script>
+    <script type="application/javascript" src="scripts/shopping.js"></script>
+</head>
+<body>
+<div class="header2">
+    <a href="client/index.html" style="text-decoration:none;"><div>The<span>Flying</span>Dutchman</div></a>
+</div>
+<div id="translator">
+    <button class="myButton" onclick="makeTranslation('other')"><a class="test">Translate</a></button>
+</div>
+
+<div id="main-body" class="shopping">
+    <div id="sidebar">
+
+        <div id="sidebar-top">
+            <p class="client_page_top_text">Client Page_</p>
+        </div>
+        <div id="sidebar-bottom">
+            <div id="trash-beer">
+                <button class="myBeerButton" ondrop="removeBeer(event, 'beers-to-buy')" ondragover="allowDrop(event)">
+                    <a class="remove_beer">Remove beer_</a>
+                </button>
+                <button class="myBeerButton" onclick="clearAllBeers('beers-to-buy')">
+                    <a class="Remove_all_beers">Remove all beers</a>
+                </button>
+            </div>
+            <div id="drag_over">
+                <button class="myBeerButton" onclick="undo()">
+                    <a class="undo">Undo_</a>
+                </button>
+                <button class="myBeerButton" onclick="redo()">
+                <a class="redo">Redo_</a>
+            </button>
+
+            </div>
+            <div class="ammount">
+                <a class="total_ammount">ammount_</a>
+                <a>$$$</a>
+                <div id="test"><button class="myButton"><a class="buy">Buy_</a></button></div>
+            </div>
+            <div id="beers-to-buy" class="scrollable-list"
+                   ondrop="addBeer(event, this.id)" ondragover="allowDrop(event)" ondragstart="drag(event)">
+                <!-- Handled by JavaScript! -->
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div id="main-top">
+            <p class="list_beers">List Beers_</p>
+        </div>
+        <div id="rpc-container" class="scrollable-list">
+            <!-- Handled by JavaScript! -->
+            <a class="client_page_start_text">Do stuff_</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    console.log("The detected language is: " + localStorage.getItem("language"));
+    makeTranslation(localStorage.getItem("language"));
+</script>
+
+</body>
+</html>

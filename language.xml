@@ -52,4 +52,12 @@
         <english>Pay</english>
         <swedish>Betala</swedish>
     </translation>
+    <translation id="client_page_top_text">
+        <english>Client main page</english>
+        <swedish>Swedish here!</swedish>
+    </translation>
+    <translation id="client_page_start_text">
+        <english>Press a button on the left to see your informations</english>
+        <swedish>Swedish here!</swedish>
+    </translation>
 </translations>
