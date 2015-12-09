@@ -51,8 +51,8 @@ function addBeer(ev,dropElementID) {
             $("#" + movedID).clone().prop("id", newButtonID)
         );
     }
-
-    countclick("addBeer",dropElementID, movedID, ev);
+    $("#amount").text(amount());
+    countclick("addBeer",dropElementID, movedID, newButtonID);
 }
 
 /**
@@ -81,7 +81,8 @@ function removeBeer(ev, parentID) {
         $("#" + oldDivID).remove();
     }
     //alert(ev + "removeBeer"+number+ parentID + movedID)
-    countclick("removeBeer", parentID, movedID,ev);
+    $("#amount").text(amount());
+    countclick("removeBeer", parentID, movedID,oldDivID);
 }
 
 
@@ -90,8 +91,8 @@ store_undo=[]; //Stores what have been un-done
 var divWayBeerToBuy;
 
 
-function countclick(funcName, parentID, movedID) {
-    store.unshift([funcName,parentID, movedID]);
+function countclick(funcName, parentID, movedID, numberOfBeers) {
+    store.unshift([funcName,parentID, movedID, numberOfBeers]);
     //alert (store);
     //alert("Store: "+ store + "  Inviterad store: " + store_undo);
     if (funcName=="addBeer"){
@@ -109,7 +110,9 @@ function undo() {
     if (store[0][0]=="addBeer"){
         var parentID=store[0][1];
         var movedID=store[0][2];
-        var movedID=movedID.concat("_0");
+        var noBeer = store[0][3];
+        noBeer=noBeer.replace(/^.+_/,"")
+        var movedID=movedID.concat("_" + noBeer);
         var movedID=movedID.replace("beerButton","beerToBuyButton");
         var number = movedID.replace("beerToBuyButton", "");
         var oldDivID = "beerToBuyButtonContainer" + number;
@@ -128,8 +131,10 @@ function undo() {
     else if (store[0][0]=="removeBeer") {
         var dropElementID=store[0][1];
         var movedID=store[0][2];
-
-        var movedID=movedID.replace("_0","");
+        var noBeer = store[0][3];
+        noBeer=noBeer.replace(/^.+_/,"")
+        var movedID=movedID.replace("_","");
+        movedID=movedID.replace(noBeer,"");
         var movedID=movedID.replace("beerToBuyButton","beerButton");
         var number = movedID.replace("beerButton", "");
 
@@ -152,19 +157,9 @@ function undo() {
         );
 
 
-        /*
-        if(event.target.id == dropElementID) {
-            // Create a new container div...
-            $(ev.target).append(
-                $("#" + divID).clone().empty().prop("id", newDivID)
-            );
-            // And add the new one!
-            $("#" + newDivID).append(
-                $("#" + movedID).clone().prop("id", newButtonID)
-            );
-        }
-        */
+
     }
+    $("#amount").text(amount());
   //  alert(store)
     store_undo.unshift(store[0]);
     store.shift();
@@ -216,7 +211,7 @@ function redo() {
         }
 
     }
-
+    $("#amount").text(amount());
     store.unshift(store_undo[0]);
     store_undo.shift();
 }
@@ -230,17 +225,31 @@ function amount(){
     //function that sum up all the beers in the 'beers-to-buy'
     var sum = 0;
 
-    var divToSearch = document.getElementById("beers-to-buy");
-    console.log(divToSearch);
-    if(divToSearch.hasChildNodes()){
+
+    var parent = document.getElementById("beers-to-buy");
+
+   /* if(parent==null){
+        console.log("Nej")
         return sum;
-    }
-    else {
-        var divsToSearch = divToSearch.childNodes;
-        for (var i = 0; i < divsToSearch.length; i++) {
-            console.log(divsToSearch[i].getData());
+    }*/
+   var child = parent.childNodes[1];
+
+    while(child !== null) {
+
+
+        var x = child.innerText;
+        if (x != undefined) {
+            var partSum = x.replace(/^.+:/,"");
+            partSum = partSum.replace(" ","");
+
+            console.log("PartSUm: ", partSum);
+            var pSum = parseFloat(partSum);
+            sum=sum+pSum;
         }
+        var child = child.nextSibling;
+
+
     }
 
-    return 5;
+    return sum.toFixed(2);
 }
