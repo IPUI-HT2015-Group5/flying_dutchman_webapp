@@ -53,7 +53,7 @@ function createUnorderedList(action, user, pass, APICall, parentID, listID, elem
     APICall(action, user, pass, function (data) {
         //console.log("Data fetched!");
         $.each(data.payload, function (i, item) {
-            //console.log("Working on: " + elementBuilder(item));
+            console.log("Working on: " + elementBuilder(item));
             $('#' + listID).append(elementBuilder(item));
         });
     });

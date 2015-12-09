@@ -30,22 +30,19 @@
             <button class="myBeerButton" onclick="
             clearContainer('rpc-container');
             getIOU(localStorage.getItem('username'), localStorage.getItem('password'),
-            'rpc-container', 'iou-list',IOUListElementBuilder);
-                ">
+            'rpc-container', 'iou-list',IOUAllListElementBuilder);">
                 <a class="Get_IOU">Remove all beers</a>
             </button>
             <button class="myBeerButton" onclick="
             clearContainer('rpc-container');
             getPurchases(localStorage.getItem('username'), localStorage.getItem('password'),
-            'rpc-container', 'purchases-list',PurchasesListElementBuilder);
-                ">
+            'rpc-container', 'purchases-list',PurchasesListElementBuilder);">
                 <a class="Get_Purchases">Remove all beers</a>
             </button>
             <button class="myBeerButton" onclick="
             clearContainer('rpc-container');
             getPayments(localStorage.getItem('username'), localStorage.getItem('password'),
-            'rpc-container', 'payments-list',PaymentsListElementBuilder);
-                ">
+            'rpc-container', 'payments-list',PaymentsListElementBuilder);">
                 <a class="Get_Payments">Remove all beers</a>
             </button>
         </div>

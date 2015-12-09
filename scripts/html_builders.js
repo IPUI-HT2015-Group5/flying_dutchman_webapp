@@ -89,7 +89,7 @@ function PurchasesListElementBuilder(item) {
  * @returns {string} The HTML for each element.
  */
 function PaymentsListElementBuilder(item) {
-    console.log("Creating IOU element!");
+    console.log("Creating payment element!");
     return "<li> Transaction ID:" + item.transaction_id +
         ", amount: " + item.amount +
         ", done on: " + item.timestamp + "</li>";
@@ -123,7 +123,7 @@ function PurchasesAllListElementBuilder(item) {
  * @returns {string} The HTML for each element.
  */
 function PaymentsAllListElementBuilder(item) {
-    console.log("Creating IOU element!");
+    console.log("Creating payment element!");
     return "<li> Admin ID: " + item.admin_username +
         ", user who paid: " + item.username +
         " (" + item.first_name + " " + item.last_name + ")" +

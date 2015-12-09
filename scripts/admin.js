@@ -32,9 +32,6 @@ function getAllPayments(user, pass, parentID, listID, elementBuilder){
 }
 
 /*
-purchases_get_all
-payments_get_all
-iou_get_all
 user_edit
 inventory_append
 */
