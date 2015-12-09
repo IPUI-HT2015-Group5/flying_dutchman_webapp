@@ -220,3 +220,8 @@ function redo() {
     store.unshift(store_undo[0]);
     store_undo.shift();
 }
+
+function clearAllBeers(beersContainerID) {
+    if (confirm("Do you want to remove all the beers? This operation can't be undone!"))
+        $("#" + beersContainerID).empty();
+}
