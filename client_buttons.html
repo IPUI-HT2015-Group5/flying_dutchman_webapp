@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="header2">
-    <a href="index.html" style="text-decoration:none;"><div>The<span>Flying</span>Dutchman</div></a>
+    <a href="client/index.html" style="text-decoration:none;"><div>The<span>Flying</span>Dutchman</div></a>
 </div>
 <div id="translator">
     <button class="myButton" onclick="makeTranslation('other')"><a class="test">Translate</a></button>
@@ -23,8 +23,8 @@
 <div id="main-body" class="shopping">
     <div id="sidebar">
 
-        <div id="sidebar-top"> <!--class="buy_a_beer">-->
-            <p class="order">Order_</p>
+        <div id="sidebar-top">
+            <p class="client_page_top_text">Client Page_</p>
         </div>
         <div id="sidebar-bottom">
             <div id="trash-beer">
@@ -46,7 +46,7 @@
             </div>
             <div class="ammount">
                 <a class="total_ammount">ammount_</a>
-                <a id="amount"></a>
+                <a>$$$</a>
                 <div id="test"><button class="myButton"><a class="buy">Buy_</a></button></div>
             </div>
             <div id="beers-to-buy" class="scrollable-list"
@@ -59,8 +59,9 @@
         <div id="main-top">
             <p class="list_beers">List Beers_</p>
         </div>
-        <div id="available-beers" class="scrollable-list"
-             ondrop="removeBeer(event, 'beers-to-buy')" ondragover="allowDrop(event)" ondragstart="drag(event)">
+        <div id="rpc-container" class="scrollable-list">
+            <!-- Handled by JavaScript! -->
+            <a class="client_page_start_text">Do stuff_</a>
         </div>
     </div>
 </div>
@@ -68,9 +69,6 @@
 <script>
     console.log("The detected language is: " + localStorage.getItem("language"));
     makeTranslation(localStorage.getItem("language"));
-    createBeerList("me", "me", "available-beers", "beer-list", beerButtonWithIDListElementBuilder);
-    //var x=amount();
-    //$("#amount").text(x);
 </script>
 
 </body>

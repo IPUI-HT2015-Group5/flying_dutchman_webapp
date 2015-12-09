@@ -52,14 +52,14 @@ function logIn(event) {
 
 function makeTranslation(language) {
     if (localStorage.getItem("language") == null) {
-        var language = "english";
+        language = "english";
         console.log("This is the first time loading this page, we got no stored language. :(")
     } else if (language == "other") {
         if (localStorage.getItem("language") == "swedish") {
-            var language = "english";
+            language = "english";
             console.log("Changed language to english")
         } else {
-            var language = "swedish";
+            language = "swedish";
             console.log("Changed language to Swedish")
         }
     }
