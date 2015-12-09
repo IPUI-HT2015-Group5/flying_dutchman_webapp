@@ -21,3 +21,19 @@ function getIOU(user, pass, parentID, listID, elementBuilder){
     // Using the createUnorderedList helper function
     return createUnorderedList("iou_get", user, pass, pubAPICall, parentID, listID, elementBuilder);
 }
+
+function getPurchases(user, pass, parentID, listID, elementBuilder){
+    // Using the createUnorderedList helper function
+    return createUnorderedList("purchases_get", user, pass, pubAPICall, parentID, listID, elementBuilder);
+}
+
+function getPayments(user, pass, parentID, listID, elementBuilder){
+    // Using the createUnorderedList helper function
+    return createUnorderedList("payments_get", user, pass, pubAPICall, parentID, listID, elementBuilder);
+}
+
+/*
+purchases_append
+payments_append
+beer_data_get
+*/

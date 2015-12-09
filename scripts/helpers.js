@@ -46,11 +46,13 @@ function pubAPIAdminCall(action, user, pass, handlerFunction) {
  * @param elementBuilder A function that creates the proper element in the list.
  */
 function createUnorderedList(action, user, pass, APICall, parentID, listID, elementBuilder) {
+    //console.log("Create the list... " + parentID);
     $('#' + parentID).append("<ul id="+ listID + "></ul>");
+    //console.log("Added the list! " + listID);
 
     APICall(action, user, pass, function (data) {
+        //console.log("Data fetched!");
         $.each(data.payload, function (i, item) {
-            //console.log(elementBuilder(item));
             $('#' + listID).append(elementBuilder(item));
         });
     });

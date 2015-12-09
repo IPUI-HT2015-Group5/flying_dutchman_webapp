@@ -9,6 +9,7 @@
     <script type="application/javascript" src="scripts/functions.js"></script>
     <script type="application/javascript" src="scripts/helpers.js"></script>
     <script type="application/javascript" src="scripts/html_builders.js"></script>
+    <script type="application/javascript" src="scripts/admin.js"></script>
     <script type="application/javascript" src="scripts/client.js"></script>
     <script type="application/javascript" src="scripts/shopping.js"></script>
 </head>
@@ -29,21 +30,21 @@
         <div id="sidebar-bottom">
             <button class="myBeerButton" onclick="
             clearContainer('rpc-container');
-            getIOU(localStorage.getItem('username'), localStorage.getItem('password'),
-            'rpc-container', 'iou-list',IOUListElementBuilder);">
-                <a class="Get_IOU">Remove all beers</a>
+            getAllIOU(localStorage.getItem('username'), localStorage.getItem('password'),
+            'rpc-container', 'iou-list',IOUAllListElementBuilder);">
+                <a class="Get_All_IOU">Remove all beers</a>
             </button>
             <button class="myBeerButton" onclick="
             clearContainer('rpc-container');
-            getPurchases(localStorage.getItem('username'), localStorage.getItem('password'),
-            'rpc-container', 'purchases-list',PurchasesListElementBuilder);">
-                <a class="Get_Purchases">Remove all beers</a>
+            getAllPurchases(localStorage.getItem('username'), localStorage.getItem('password'),
+            'rpc-container', 'purchases-list',PurchasesAllListElementBuilder);">
+                <a class="Get_All_Purchases">Remove all beers</a>
             </button>
             <button class="myBeerButton" onclick="
             clearContainer('rpc-container');
-            getPayments(localStorage.getItem('username'), localStorage.getItem('password'),
-            'rpc-container', 'payments-list',PaymentsListElementBuilder);">
-                <a class="Get_Payments">Remove all beers</a>
+            getAllPayments(localStorage.getItem('username'), localStorage.getItem('password'),
+            'rpc-container', 'payments-list',PaymentsAllListElementBuilder);">
+                <a class="Get_All_Payments">Remove all beers</a>
             </button>
         </div>
     </div>
