@@ -80,7 +80,12 @@ function IOUListElementBuilder(item) {
  */
 function PurchasesListElementBuilder(item) {
     console.log("Creating purchase element!");
-    return "<li>WIP</li>";
+    return "<li>You bought a " +
+        item.namn +
+        (item.namn2 != "" ? " (" + item.namn2 + ")" : "") +
+        " on " + item.timestamp +
+        " for " + item.price +
+        "</li>";
 }
 
 /**
@@ -114,7 +119,12 @@ function IOUAllListElementBuilder(item) {
  */
 function PurchasesAllListElementBuilder(item) {
     console.log("Creating purchase element!");
-    return "<li>WIP</li>";
+    return "<li>You bought a " +
+        item.namn +
+        (item.namn2 != "" ? " (" + item.namn2 + ")" : "") +
+        " on " + item.timestamp +
+        " for " + item.price +
+        "</li>";
 }
 
 /**
