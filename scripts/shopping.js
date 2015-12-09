@@ -222,6 +222,21 @@ function redo() {
 }
 
 function clearAllBeers(beersContainerID) {
-    if (confirm("Do you want to remove all the beers? This operation can't be undone!"))
-        $("#" + beersContainerID).empty();
+    if (localStorage.getItem("language") == "english") {
+        if (confirm("Do you want to remove all the beers? This operation can't be undone!"))
+            $("#" + beersContainerID).empty();
+    } else {
+        if (confirm("Är du säker på att du vill ta bort alla öl? Detta kan inte ångras!"))
+            $("#" + beersContainerID).empty();
+    }
+}
+
+function buyAllBeers(beersContainerID) {
+    if (localStorage.getItem("language") == "english") {
+        if (confirm("You order has been placed, please go and collect your order."))
+            $("#" + beersContainerID).empty();
+    } else {
+        if (confirm("Beställningen är mottagen, vänligen hämta din beställning."))
+            $("#" + beersContainerID).empty();
+    }
 }
