@@ -15,3 +15,26 @@ function createInventoryList(user, pass, parentID, listID, elementBuilder) {
     // Using the createUnorderedList helper function
     return createUnorderedList("inventory_get", user, pass, pubAPICall, parentID, listID, elementBuilder);
 }
+
+function getAllIOU(user, pass, parentID, listID, elementBuilder){
+    // Using the createUnorderedList helper function
+    return createUnorderedList("iou_get_all", user, pass, pubAPICall, parentID, listID, elementBuilder);
+}
+
+function getAllPurchases(user, pass, parentID, listID, elementBuilder){
+    // Using the createUnorderedList helper function
+    return createUnorderedList("purchases_get_all", user, pass, pubAPICall, parentID, listID, elementBuilder);
+}
+
+function getAllPayments(user, pass, parentID, listID, elementBuilder){
+    // Using the createUnorderedList helper function
+    return createUnorderedList("payments_get_all", user, pass, pubAPICall, parentID, listID, elementBuilder);
+}
+
+/*
+purchases_get_all
+payments_get_all
+iou_get_all
+user_edit
+inventory_append
+*/

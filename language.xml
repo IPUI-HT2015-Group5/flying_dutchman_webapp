@@ -54,10 +54,34 @@
     </translation>
     <translation id="client_page_top_text">
         <english>Client main page</english>
-        <swedish>Swedish here!</swedish>
+        <swedish>Swedish here for top page!</swedish>
     </translation>
     <translation id="client_page_start_text">
         <english>Press a button on the left to see your informations</english>
-        <swedish>Swedish here!</swedish>
+        <swedish>Swedish here for generic info!</swedish>
+    </translation>
+    <translation id="Get_IOU">
+        <english>See your credit!</english>
+        <swedish>Swedish here for "See your credit"!</swedish>
+    </translation>
+    <translation id="Get_Purchases">
+        <english>See your credit!</english>
+        <swedish>Swedish here for "See your purchases"!</swedish>
+    </translation>
+    <translation id="Get_Payments">
+        <english>See your payments!</english>
+        <swedish>Swedish here for "See your payments"!</swedish>
+    </translation>
+    <translation id="Get_All_IOU">
+        <english>See all users credit!</english>
+        <swedish>Swedish here for "See all user credit"!</swedish>
+    </translation>
+    <translation id="Get_All_Purchases">
+        <english>See all credit!</english>
+        <swedish>Swedish here for "See all purchases"!</swedish>
+    </translation>
+    <translation id="Get_All_Payments">
+        <english>See all payments!</english>
+        <swedish>Swedish here for "See all payments"!</swedish>
     </translation>
 </translations>

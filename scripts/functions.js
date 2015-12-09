@@ -14,30 +14,36 @@ function logIn(event) {
     var user = $("#username").val();
     var pass = $("#password").val();
     // Static values for test API calls.
-    var action = "payments_get";
+    var action = "iou_get";
     var adminAction = "payments_get_all";
     var truth = false;
 
     pubAPICall(action, user, pass).done(function (data) {
+        /*
         canMakeTheCall(action, user, pass, truth);
         console.log("Result of client: "  + truth);
         canMakeTheCall(adminAction, user, pass, truth);
         console.log("Result of admin: " + truth);
+        */
 
         if (data.type == "error") {
             alert("Error during login: " + data.payload[0].msg + " (error code: " + data.payload[0].code + ")");
         } else {
+            console.log("Login...");
             localStorage.setItem("username", user);
             localStorage.setItem("password", pass);
-            canMakeTheCall(adminAction, user, pass, truth);
-            if (truth) {
-                console.log("We are an admin!");
-                window.location.href = "shopping.html";
-            }
-            else {
-                console.log("We are an user!");
-                window.location.href = "shopping.html";
-            }
+            console.log("Check user permissions...");
+            pubAPICall(adminAction, user, pass).done(function(data){
+                if (data.type == adminAction) {
+                    console.log("We are an admin!");
+                    window.location.href = "admin_buttons.html";
+                }
+                else {
+                    console.log("We are an user!");
+                    window.location.href = "client_buttons.html";
+                }
+            });
+
         }
         console.log("Logged in as " + localStorage.getItem("username"));
         }).fail(function(obj, txt, e) {
@@ -76,4 +82,12 @@ function makeTranslation(language) {
             localStorage.setItem("language", language);
         }
     });
+}
+
+/**
+ * Clear a container.
+ * @param id The ID of a container to clear.
+ */
+function clearContainer(id){
+    $("#" + id).empty();
 }
