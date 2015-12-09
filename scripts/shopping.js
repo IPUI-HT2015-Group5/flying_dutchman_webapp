@@ -234,8 +234,9 @@ function buyAllBeers(beersContainerID) {
         if (confirm("Beställningen är mottagen, vänligen hämta din beställning."))
             $("#" + beersContainerID).empty();
     }
-}    if (confirm("Do you want to remove all the beers? This operation can't be undone!"))
+   if (confirm("Do you want to remove all the beers? This operation can't be undone!"))
         $("#" + beersContainerID).empty();
+
 }
 
 function amount(){
