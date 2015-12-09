@@ -52,7 +52,10 @@ function addBeer(ev,dropElementID) {
         );
     }
 
-    countclick("addBeer",dropElementID, movedID, ev);
+    countclick("addBeer",dropElementID, movedID, newButtonID);
+
+
+
 }
 
 /**
@@ -71,6 +74,7 @@ function removeBeer(ev, parentID) {
     // Create the new IDs
     var oldDivID = "beerToBuyButtonContainer" + number;
 
+
     /* Delete the elements, just if the correct parent is the one we look for
     Actually, the structure is like:
     list -> container div -> button
@@ -81,7 +85,7 @@ function removeBeer(ev, parentID) {
         $("#" + oldDivID).remove();
     }
     //alert(ev + "removeBeer"+number+ parentID + movedID)
-    countclick("removeBeer", parentID, movedID,ev);
+    countclick("removeBeer", parentID, movedID,oldDivID);
 }
 
 
@@ -90,8 +94,8 @@ store_undo=[]; //Stores what have been un-done
 var divWayBeerToBuy;
 
 
-function countclick(funcName, parentID, movedID) {
-    store.unshift([funcName,parentID, movedID]);
+function countclick(funcName, parentID, movedID, moreThanOne) {
+    store.unshift([funcName,parentID, movedID, moreThanOne]);
     //alert (store);
     //alert("Store: "+ store + "  Inviterad store: " + store_undo);
     if (funcName=="addBeer"){
@@ -109,9 +113,15 @@ function undo() {
     if (store[0][0]=="addBeer"){
         var parentID=store[0][1];
         var movedID=store[0][2];
-        var movedID=movedID.concat("_0");
+        var numberInOrder = store[0][3];
+        var numberInOrder=numberInOrder.replace(/^.+_/,"");
+
+        var movedID=movedID.concat("_");
+        var movedID=movedID.concat(numberInOrder);
         var movedID=movedID.replace("beerButton","beerToBuyButton");
         var number = movedID.replace("beerToBuyButton", "");
+
+
         var oldDivID = "beerToBuyButtonContainer" + number;
         //alert([number, parentID, movedID])
         /* Delete the elements, just if the correct parent is the one we look for
@@ -129,10 +139,15 @@ function undo() {
         var dropElementID=store[0][1];
         var movedID=store[0][2];
 
-        var movedID=movedID.replace("_0","");
+        var numberInOrder = store[0][3];
+        var numberInOrder=numberInOrder.replace(/^.+_/,"");
+
+
+        var movedID=movedID.replace("_","");
+        var movedID=movedID.replace(numberInOrder,"");
         var movedID=movedID.replace("beerToBuyButton","beerButton");
         var number = movedID.replace("beerButton", "");
-
+        //console.log(dropElementID, movedID)
         // Create the new IDs
         var divID = "beerButtonContainer" + number;
 
@@ -177,6 +192,9 @@ function redo() {
     if (store_undo[0][0] == "addBeer") {
         var parentID = store_undo[0][1];
         var movedID = store_undo[0][2];
+
+
+
         var number = movedID.replace("beerButton", "");
         // Create the new IDs
         var divID = "beerButtonContainer" + number;
@@ -219,4 +237,23 @@ function redo() {
 
     store.unshift(store_undo[0]);
     store_undo.shift();
+}
+
+function amount(){
+    //function that sum up all the beers in the 'beers-to-buy'
+    var sum = 0;
+
+    var divToSearch = document.getElementById("beers-to-buy");
+    console.log(divToSearch);
+    if(divToSearch.hasChildNodes()){
+        return sum;
+    }
+    else {
+        var divsToSearch = divToSearch.childNodes;
+        for (var i = 0; i < divsToSearch.length; i++) {
+            console.log(divsToSearch[i].getData());
+        }
+    }
+
+    return 5;
 }

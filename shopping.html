@@ -46,7 +46,7 @@
             </div>
             <div class="ammount">
                 <a class="total_ammount">ammount_</a>
-                <a>$$$</a>
+                <a id="amount"></a>
                 <div id="test"><button class="myButton"><a class="buy">Buy_</a></button></div>
             </div>
             <div id="beers-to-buy" class="scrollable-list"
@@ -61,7 +61,6 @@
         </div>
         <div id="available-beers" class="scrollable-list"
              ondrop="removeBeer(event, 'beers-to-buy')" ondragover="allowDrop(event)" ondragstart="drag(event)">
-            <!-- Handled by JavaScript! -->
         </div>
     </div>
 </div>
@@ -70,6 +69,8 @@
     console.log("The detected language is: " + localStorage.getItem("language"));
     makeTranslation(localStorage.getItem("language"));
     createBeerList("me", "me", "available-beers", "beer-list", beerButtonWithIDListElementBuilder);
+    //var x=amount();
+    //$("#amount").text(x);
 </script>
 
 </body>
