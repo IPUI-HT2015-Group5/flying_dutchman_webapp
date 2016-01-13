@@ -217,16 +217,23 @@ function redo() {
 }
 
 function clearAllBeers(beersContainerID) {
+
     if (localStorage.getItem("language") == "english") {
         if (confirm("Do you want to remove all the beers? This operation can't be undone!"))
             $("#" + beersContainerID).empty();
+        $("#amount").text(amount());
     } else {
         if (confirm("Är du säker på att du vill ta bort alla öl? Detta kan inte ångras!"))
             $("#" + beersContainerID).empty();
+        $("#amount").text(amount());
+
     }
+
+
 }
 
 function buyAllBeers(beersContainerID) {
+    $("#amount").text(amount());
     if (localStorage.getItem("language") == "english") {
         if (confirm("You order has been placed, please go and collect your order."))
             $("#" + beersContainerID).empty();
@@ -246,10 +253,7 @@ function amount(){
 
     var parent = document.getElementById("beers-to-buy");
 
-   /* if(parent==null){
-        console.log("Nej")
-        return sum;
-    }*/
+
    var child = parent.childNodes[1];
 
     while(child !== null) {
@@ -260,7 +264,7 @@ function amount(){
             var partSum = x.replace(/^.+:/,"");
             partSum = partSum.replace(" ","");
 
-            console.log("PartSUm: ", partSum);
+            //console.log("PartSum: ", partSum);
             var pSum = parseFloat(partSum);
             sum=sum+pSum;
         }
