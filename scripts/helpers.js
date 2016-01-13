@@ -9,10 +9,11 @@
  * @param user The user which makes the call.
  * @param pass The password of the user mentioned above.
  * @param handlerFunction A function that handles the result got from the API call.
+ * @param additionalParameters Additional parameters for some specific API calls.
  */
-function pubAPICall(action, user, pass, handlerFunction) {
+function pubAPICall(action, user, pass, handlerFunction, additionalParameters) {
     // The Pub API URL, with correct parameters
-    var PubAPI = "http://pub.jamaica-inn.net/fpdb/api.php?username=" + user + "&password=" + pass + "&action=" + action;
+    var PubAPI = "http://pub.jamaica-inn.net/fpdb/api.php?username=" + user + "&password=" + pass + "&action=" + action + additionalParameters;
     // Use JQuery getJSON
     return $.getJSON(PubAPI, handlerFunction);
 }
@@ -23,8 +24,9 @@ function pubAPICall(action, user, pass, handlerFunction) {
  * @param user Overloaded inside, is there just for compatibility.
  * @param pass Overloaded inside, is there just for compatibility.
  * @param handlerFunction The function which handles the data got from the API call.
+ * @param additionalParameters Additional parameters for some specific API calls.
  */
-function pubAPIAdminCall(action, user, pass, handlerFunction) {
+function pubAPIAdminCall(action, user, pass, handlerFunction, additionalParameters) {
     /*
     "Override" (or better, ignore) username and password and
     run the API call as an admin.
@@ -32,7 +34,7 @@ function pubAPIAdminCall(action, user, pass, handlerFunction) {
     */
     user = "jorass";
     pass = "jorass";
-    return pubAPICall(action, user, pass, handlerFunction);
+    return pubAPICall(action, user, pass, handlerFunction, additionalParameters);
 }
 
 /**
