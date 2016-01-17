@@ -26,7 +26,7 @@
     </translation>
     <translation id="Remove_all_beers">
         <english>Remove all beers</english>
-        <swedish>Ta bort alla öler</swedish>
+        <swedish>Ta bort hela ordern</swedish>
     </translation>
     <translation id="undo">
         <english>Undo</english>
@@ -86,10 +86,15 @@
     </translation>
     <translation id="History_Back">
         <english>Go to the previous page!</english>
-        <swedish>Swedish translation missing!</swedish>
+        <swedish>Tillbaka till föregående sida!</swedish>
     </translation>
     <translation id="Client_Page">
         <english>Go to the clients operations!</english>
-        <swedish>Swedish translation missing!</swedish>
+        <swedish>Till funktioner för användare!!</swedish>
     </translation>
+    <translation id="choose_button">
+        <english>Choose and buy beers here. </english>
+        <swedish>Välj och köp öl här.</swedish>
+    </translation>
+
 </translations>
