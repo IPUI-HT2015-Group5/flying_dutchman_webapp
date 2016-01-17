@@ -93,8 +93,7 @@ var divWayBeerToBuy;
 
 function countclick(funcName, parentID, movedID, numberOfBeers) {
     store.unshift([funcName,parentID, movedID, numberOfBeers]);
-    //alert (store);
-    //alert("Store: "+ store + "  Inviterad store: " + store_undo);
+
     if (funcName=="addBeer"){
         divWayBeerToBuy="#"+parentID;
     }
@@ -106,7 +105,7 @@ function countclick(funcName, parentID, movedID, numberOfBeers) {
 }
 
 function undo() {
-    //alert("Store: "+ store + "  Inviterad store: " + store_undo);
+
     if (store[0][0]=="addBeer"){
         var parentID=store[0][1];
         var movedID=store[0][2];
@@ -116,12 +115,8 @@ function undo() {
         var movedID=movedID.replace("beerButton","beerToBuyButton");
         var number = movedID.replace("beerToBuyButton", "");
         var oldDivID = "beerToBuyButtonContainer" + number;
-        //alert([number, parentID, movedID])
-        /* Delete the elements, just if the correct parent is the one we look for
-         Actually, the structure is like:
-         list -> container div -> button
-         So we should check for the "grandparent" (parent's parent).
-         */
+
+
         if ($("#" + movedID).parent().parent().prop("id") == parentID) {
             $("#" + movedID).remove();
             $("#" + oldDivID).remove();
@@ -160,11 +155,9 @@ function undo() {
 
     }
     $("#amount").text(amount());
-  //  alert(store)
+
     store_undo.unshift(store[0]);
     store.shift();
-   // alert("Store: "+ store + "  Inviterad store: " + store_undo);
-  // alert(store)
 }
 
 function redo() {
@@ -286,14 +279,11 @@ function amount(){
     //function that sum up all the beers in the 'beers-to-buy'
     var sum = 0;
 
-
     var parent = document.getElementById("beers-to-buy");
-
 
    var child = parent.childNodes[1];
 
     while(child !== null) {
-
 
         var x = child.innerText;
         if (x != undefined) {
@@ -305,7 +295,6 @@ function amount(){
             sum=sum+pSum;
         }
         var child = child.nextSibling;
-
 
     }
 
