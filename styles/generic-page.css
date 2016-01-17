@@ -45,7 +45,8 @@ body {
 }
 .scrollable-list {
     overflow-y: auto;
-
+    min-height: 50vh;
+    max-height: 75vh;
 }
 
 #available-beers {
@@ -166,9 +167,11 @@ body {
 }
 
 #main {
+    position: absolute;
     float: left;
-    top: 80px;
-    left: 31%;
+    left: 300px;
+    min-height: 60vh;
+    max-height: 70vh;
 }
 
 #translator {
