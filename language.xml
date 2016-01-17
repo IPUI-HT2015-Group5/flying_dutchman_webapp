@@ -84,4 +84,12 @@
         <english>See all payments!</english>
         <swedish>Se alla betalningar!</swedish>
     </translation>
+    <translation id="History_Back">
+        <english>Go to the previous page!</english>
+        <swedish>Swedish translation missing!</swedish>
+    </translation>
+    <translation id="Client_Page">
+        <english>Go to the clients operations!</english>
+        <swedish>Swedish translation missing!</swedish>
+    </translation>
 </translations>
