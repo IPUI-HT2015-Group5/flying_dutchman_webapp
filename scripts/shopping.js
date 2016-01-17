@@ -223,7 +223,7 @@ function clearAllBeers(beersContainerID) {
             $("#" + beersContainerID).empty();
         $("#amount").text(amount());
     } else {
-        if (confirm("Är du säker på att du vill ta bort alla öl? Detta kan inte ångras!"))
+        if (confirm("ï¿½r du sï¿½ker pï¿½ att du vill ta bort alla ï¿½l? Detta kan inte ï¿½ngras!"))
             $("#" + beersContainerID).empty();
         $("#amount").text(amount());
 
@@ -234,15 +234,51 @@ function clearAllBeers(beersContainerID) {
 
 function buyAllBeers(beersContainerID) {
     $("#amount").text(amount());
-    if (localStorage.getItem("language") == "english") {
-        if (confirm("You order has been placed, please go and collect your order."))
-            $("#" + beersContainerID).empty();
-    } else {
-        if (confirm("Beställningen är mottagen, vänligen hämta din beställning."))
-            $("#" + beersContainerID).empty();
-    }
-   if (confirm("Do you want to remove all the beers? This operation can't be undone!"))
-        $("#" + beersContainerID).empty();
+
+    // Magic here!
+    pubAPIAdminCall("inventory_get",
+        localStorage.getItem('username'),
+        localStorage.getItem('password'),
+        /*
+         function() {
+         console.log( "success" );
+         }
+         */
+        function (data) {
+            if (confirm("Are you sure???")) {
+                // Get all the buttons of the beers to buy...
+                $("*[id^='beerToBuyButtonContainer']").each(
+                    // For each of them...
+                    function (i, el) {
+                        // Find the beer position in the inventory...
+                        var beerPosition = el.id.substring(0, el.id.indexOf('_')).replace("beerToBuyButtonContainer", "");
+                        // Some logging
+                        console.log(beerPosition);
+                        console.log("Element: " + el.id + " id " + data.payload[beerPosition].beer_id + " (number " + i + ")");
+                        // Buy the beers!
+                        pubAPICall("purchases_append", localStorage.getItem('username'), localStorage.getItem('password'),
+                            function() {
+                                // Comment when testing is finished
+                                console.log("Beer for " + el.id + " purchased!");
+                            },
+                            "beer_id=" + data.payload[beerPosition].beer_id
+                        );
+                    }
+                );
+            }
+
+            // Ask for beer removal
+            if (localStorage.getItem("language") == "english") {
+                if (confirm("You order has been placed, please go and collect your order."))
+                    $("#" + beersContainerID).empty();
+            } else {
+                if (confirm("Bestï¿½llningen ï¿½r mottagen, vï¿½nligen hï¿½mta din bestï¿½llning."))
+                    $("#" + beersContainerID).empty();
+            }
+            if (confirm("Do you want to remove all the beers? This operation can't be undone!"))
+                $("#" + beersContainerID).empty();
+        }
+    );
 
 }
 
