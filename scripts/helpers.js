@@ -13,7 +13,11 @@
  */
 function pubAPICall(action, user, pass, handlerFunction, additionalParameters) {
     // The Pub API URL, with correct parameters
-    var PubAPI = "http://pub.jamaica-inn.net/fpdb/api.php?username=" + user + "&password=" + pass + "&action=" + action + additionalParameters;
+    var PubAPI = "http://pub.jamaica-inn.net/fpdb/api.php?username=" + user + "&password=" + pass + "&action=" + action;
+    // Add additional parameters if any
+    if (typeof variable !== 'undefined') {
+        PubAPI = PubAPI + + additionalParameters;
+    }
     // Use JQuery getJSON
     return $.getJSON(PubAPI, handlerFunction);
 }
