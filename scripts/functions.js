@@ -36,11 +36,11 @@ function logIn(event) {
             pubAPICall(adminAction, user, pass).done(function(data){
                 if (data.type == adminAction) {
                     console.log("We are an admin!");
-                    window.location.href = "admin_buttons.html";
+                    window.location.href = "../admin.html";
                 }
                 else {
                     console.log("We are an user!");
-                    window.location.href = "client_buttons.html";
+                    window.location.href = "../client.html";
                 }
             });
 
